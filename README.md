@@ -19,3 +19,16 @@ This repository is the starter code for _all_ Udacity students. Therefore, we mo
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 # Memory_Game
+
+
+Format List:
+    Modal for Welcome
+    ->Text size and style
+    ->Layout
+CleanUp List:
+    PEP spacing
+    White Space
+    Comments
+    Spelling
+    
+Bug List:
