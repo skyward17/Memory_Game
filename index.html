@@ -91,7 +91,7 @@
   <!-- Modal content -->
   <section class="modal-content">
     <span class="close">CLOSE</span>
-    <section>
+    <section class="welcome">
       <h2>Welcome to Match Game</h2>
         <article>
         "Intro"
@@ -101,10 +101,14 @@
         "Rules"
         </article>
     </section>
-    <form>
-        <h1>Optional: Enter your name:</h1>
-        <input type="text" id="playerName" min="1" max="50">
-        <button type="button" id="subPlyrName" onclick="playerName()"><h2>Submit</h2></button>
+    <form class="nameform">
+        <section>
+          <h1>Optional: Enter your name:</h1>
+          <input type="text" id="playerName" class="nameForm" min="1" max="50">
+        </section>
+        <section>
+          <button type="button" class="button" style="vertical-align:middle" id="subPlyrName" onclick="playerName()"><span>Submit</span></button>
+        </section>
     </form>
   </section>
 
