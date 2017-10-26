@@ -90,12 +90,22 @@
 
   <!-- Modal content -->
   <section class="modal-content">
-    <span class="close">CLOSE</span> <!-- &times; -->
-    <p>Welcome to Match Game</p>
+    <span class="close">CLOSE</span>
     <section>
-        <h2>Optional: Pick a Play Mat Background Color</h2>
-        <input type="color" id="colorPicker">
+      <h2>Welcome to Match Game</h2>
+        <article>
+        "Intro"
+
+        </article>
+        <article>
+        "Rules"
+        </article>
     </section>
+    <form>
+        <h1>Optional: Enter your name:</h1>
+        <input type="text" id="playerName" min="1" max="50">
+        <button type="button" id="subPlyrName" onclick="playerName()"><h2>Submit</h2></button>
+    </form>
   </section>
 
 </div>
