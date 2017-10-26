@@ -22,7 +22,7 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 
 Format List:
-    Modal for Welcome
+    Modal for Welcome:
     ->Text size and style
     ->Layout
 CleanUp List:
@@ -30,5 +30,6 @@ CleanUp List:
     White Space
     Comments
     Spelling
-    
+    Cited Sources
+
 Bug List:
