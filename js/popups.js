@@ -1,38 +1,50 @@
 // Modals for Welcome and GameOver PopUps
+
+// Get the <span> element that closes the modal
+//const span = document.getElementsByClassName("close")[0];
+
+
 // Welcome Modal
 const welcomeModal = document.getElementById("welcome_modal");
-
-// Background color selector
-let colorSelect = document.getElementById("colorPicker").value;
+// function to change background-color
 
 // When Window Loads displays Welcome Modal
 function welcome() {
-    window.open(welcomModal.style.display = "block");
+    window.open(welcomeModal.style.display = "block");
 };
 
-
-// GameOver Modal
-const GameOverModal = document.getElementById("gameOver_modal");
-
-// When Window Loads displays Welcome Modal
-function gameOver() {
-    GameOverModal.style.display = "block";
-};
-
-
-// Shared Code for Modals
-
-// Get the <span> element that closes the modal
+// When the user clicks on close text close the modal
 const span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-    modal.style.display = "none";
+    welcomeModal.style.display = "none";
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == welcomeModal) {
+        welcomeModal.style.display = "none";
+    }
+};
+
+
+
+// GameOver Modal
+const gameOverModal = document.getElementById("gameOver_modal");
+
+// When Window Loads displays Welcome Modal
+function gameOver() {
+    gameOverModal.style.display = "block";
+};
+
+// When the user clicks on close text close the modal
+function close() {
+    const span = document.getElementsByClassName("close")[0];
+    gameOverModal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == gameOverModal) {
+        gameOverModal.style.display = "none";
     }
 };

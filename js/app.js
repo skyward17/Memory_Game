@@ -1,3 +1,11 @@
+// Player Name array
+let plrEntrName = document.getElementById("playerName");
+
+function playersName() {
+    const playerNameStore = [plrEntrName.value];
+    console.log(playerNameStore); // For testing
+    return playerNameStore;
+};
 /*
  * Create a list that holds all of your cards
  */
