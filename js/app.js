@@ -1,22 +1,11 @@
-// Player Name array
-let plrEntrName = document.getElementById("playerName");
-// Players name entered from Welcome Modal
-function playersName() {
-    const playerNameStore = [plrEntrName.value];
-    console.log(playerNameStore); // For testing
-    // Add players name to game
-    const displayName = document.getElementById("playersNameHere");
-    displayName.innerHTML = `Player: ${playerNameStore}`;
-    return playerNameStore;
-};
-
+/*
 // Stars & Moves.  Removes a star and updates # of stars Remaining
 const star = document.getElementsByClassName("fa fa-star");
 star.remove(); // removes a star class
 const starCount = document.getElementsByClassName("fa fa-star").length; // Counts star elements
 const movesCount = document.getElementsByClassName("moves");
 movesCount.innerHTML = starCount; // Updates moves remaining
-
+*/
 
 /*
  * Create a list that holds all of your cards
