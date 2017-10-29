@@ -33,3 +33,5 @@ CleanUp List:
     Cited Sources
 
 Bug List:
+  Modal:
+  -User Clicks off modal does not close modal. 
