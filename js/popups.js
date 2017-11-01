@@ -34,7 +34,6 @@ function playersName() {
     // Add players name to game
     const displayName = document.getElementById("playersNameHere");
     displayName.innerHTML = `Player: ${playerNameStore}`;
-    return playerNameStore;
 };
 
 // GameOver Modal
