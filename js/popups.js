@@ -37,41 +37,20 @@ function playersName() {
 };
 
 
-
 // Difficulty Selects (Easy, Medium, Hard)
-// EASY
-function starsEasy() {
-    for (let i = 0; i < 5; i++) {
+let easyDif = 6;
+let mediumDif = 4;
+let hardDif = 2;
+function difficultyLevel(level) {
+    clearStars();
+    for (let i = 0; i < level; i++) {
         const stars = document.getElementById("stars"); // Grab Stars ID
         const listItem = document.createElement("li"); // Create a li
         stars.appendChild(listItem); // Add li to stars ID
         listItem.setAttribute("class", "fa fa-star"); // Add Class "fa fa-star" to each li
     }
-    return starCount();
+    starCount();
 };
-
-// MEDIUM
-function starsMedium() {
-    for (let i = 0; i < 4; i++) {
-        const stars = document.getElementById("stars"); // Grab Stars ID
-        const listItem = document.createElement("li"); // Create a li
-        stars.appendChild(listItem); // Add li to stars ID
-        listItem.setAttribute("class", "fa fa-star"); // Add Class "fa fa-star" to each li
-    }
-    return starCount();
-};
-
-//HARD
-function starsHard() {
-    for (let i = 0; i < 2; i++) {
-        const stars = document.getElementById("stars"); // Grab Stars ID
-        const listItem = document.createElement("li"); // Create a li
-        stars.appendChild(listItem); // Add li to stars ID
-        listItem.setAttribute("class", "fa fa-star"); // Add Class "fa fa-star" to each li
-    }
-    return starCount();
-};
-
 
 
 // GameOver() Modal
@@ -102,7 +81,7 @@ displayName.innerHTML = `Congradulations! ${playerNameStore}`;
 
 };
 
-// Click Count
+
 // Play Again?  Same as reset()
 
 // Stars & Moves.  Removes a star and updates # of stars Remaining
@@ -112,5 +91,12 @@ function starCount() {
     movesCount.innerHTML = `${starCount}`; // Updates moves remaining
 };
 
-
-//star.remove(); // removes a star class
+// Removes all stars
+function clearStars() {
+    const starCount = document.getElementsByClassName("fa fa-star").length;
+    const stars = document.getElementById("stars");
+    for (let i = 0; i < starCount; i++) {
+        stars.removeChild(stars.childNodes[0]);
+    }
+    console.log(starCount);
+};

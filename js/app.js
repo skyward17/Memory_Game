@@ -1,4 +1,9 @@
+function reset() {
+    //welcome();
+    clearStars();
+    //shuffle();
 
+};
 
 /*
  * Create a list that holds all of your cards

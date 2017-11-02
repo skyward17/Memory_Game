@@ -35,4 +35,5 @@ CleanUp List:
 Bug List:
   Modal:
   -User Clicks off modal does not close modal.
-  -User Name spacing in <span> 
+  -User Name spacing in <span>
+  -difficultyLevel() clearStars issues when first loading

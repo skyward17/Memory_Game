@@ -25,7 +25,7 @@
           <span class="display-name" id="playersNameHere"></span>
 
             <div class="restart">
-        		<i class="fa fa-repeat"></i>
+        		<i class="fa fa-repeat" onclick="reset()"></i>
         	</div>
         </section>
 
@@ -119,9 +119,9 @@
     <section class="welcome">
       <h1>Select Difficulty Level</h1>
         <section>
-          <button type="button" class="buttonDif"  onclick="starsEasy()">EASY</button>
-          <button type="button" class="buttonDif"  onclick="starsMedium()">MEDIUM</button>
-          <button type="button" class="buttonDif"  onclick="starsHard()">HARD</button>
+          <button type="button" class="buttonDif"  onclick="difficultyLevel(easyDif)">EASY</button>
+          <button type="button" class="buttonDif"  onclick="difficultyLevel(mediumDif)">MEDIUM</button>
+          <button type="button" class="buttonDif"  onclick="difficultyLevel(hardDif)">HARD</button>
         </section>
     </section>
   </section>
