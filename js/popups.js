@@ -36,7 +36,7 @@ function playersName() {
     displayName.innerHTML = `Player: ${playerNameStore}`;
 };
 
-// GameOver Modal
+// GameOver() Modal
 const gameOverModal = document.getElementById("gameOver_modal");
 
 // When Window Loads displays Welcome Modal
@@ -56,3 +56,7 @@ window.onclick = function(event) {
         gameOverModal.style.display = "none";
     }
 };
+
+// winnerWinner() Modal
+const displayName = document.getElementById("playersNameHere");
+displayName.innerHTML = `Congradulations! ${playerNameStore}`;
