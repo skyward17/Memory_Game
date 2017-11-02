@@ -1,4 +1,10 @@
-/* Modals */
+/*
+Modals
+*/
+h1 {
+    font-weight: bold;
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -13,6 +19,7 @@
 }
 
 /* Modal Content/Box */
+
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
@@ -87,5 +94,20 @@
     right: 0;
 }
 
+/* Buttons for Difficuly Levels */
+.buttonDif {
+    display: inline-block;
+    background-color: #ffa500; /* Orange1 */
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding: 10px 24px;
+    float: none;
+    border-radius: 4px;
+    border: none;
+}
 
-/* Credit for Aniumated Arrow button to https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_animate1 */
+.buttonDif:hover {
+    background-color: #cd8500; /* Orange3 */
+}
+/* Credit for Animated Arrow button to https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_animate1 */

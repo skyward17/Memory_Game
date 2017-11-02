@@ -36,6 +36,12 @@ function playersName() {
     displayName.innerHTML = `Player: ${playerNameStore}`;
 };
 
+// Difficulty Select
+function starsEasy() {
+
+};
+
+
 // GameOver() Modal
 const gameOverModal = document.getElementById("gameOver_modal");
 
@@ -58,5 +64,11 @@ window.onclick = function(event) {
 };
 
 // winnerWinner() Modal
+function winnerWinner() {
 const displayName = document.getElementById("playersNameHere");
 displayName.innerHTML = `Congradulations! ${playerNameStore}`;
+
+};
+
+// Click Count
+// Play Again?  Same as reset()

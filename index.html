@@ -96,20 +96,21 @@
     <section class="welcome">
       <h2>Welcome to Match Game</h2>
         <article>
-        "Welcome to Match Game.  Match Game is a simple memory game you may remember
+        Welcome to Match Game.  Match Game is a simple memory game you may remember
         from when you were younger.  The object of Match Game is simple; match each
         pair of cards until each pair is  matched."
         </article>
         <article>
-        "Rules:
-        1. Click on a card slot to flip it reveling an image.
-        2. Select another slot to flip another card.
-        3. If the cards match move on to the next slot until all cards are matched and reveld.
-        4. If you fail to select match cards you lose a star.  Once all 5 stars are gone the game is over.
-
+          <b>Rules:</b>
+          <ol>
+          <li>Click on a card slot to flip it reveling an image.</li>
+          <li>Select another slot to flip another card.</li>
+          <li>If the cards match move on to the next slot until all cards are matched and reveld.</li>
+          <li>If you fail to select match cards you lose a star.  Once all 5 stars are gone the game is over.</li>
+        </ol>
         </article>
     </section>
-    <form class="nameform">
+    <form class="welcome">
         <section>
           <h1>Optional: Enter your name:</h1>
           <input type="text" id="playerName" class="nameForm" min="1" max="50">
@@ -118,6 +119,14 @@
           <button type="button" class="button" style="vertical-align:middle" id="subPlyrName" onclick="playersName()"><span>Submit</span></button>
         </section>
     </form>
+    <section class="welcome">
+      <h1>Select Difficulty Level</h1>
+        <section>
+          <button type="button" class="buttonDif"  onclick="starsEasy()">EASY</button>
+          <button type="button" class="buttonDif"  onclick="starsMedium()">MEDIUM</button>
+          <button type="button" class="buttonDif"  onclick="starsHard()">HARD</button>
+        </section>
+    </section>
   </section>
 
 </div>
