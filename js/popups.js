@@ -9,7 +9,7 @@ const welcomeModal = document.getElementById("welcome_modal");
 
 // When Window Loads displays Welcome Modal
 function welcome() {
-    window.open(welcomeModal.style.display = "block");
+    welcomeModal.style.display = "block";
 };
 
 // When the user clicks on close text close the modal
@@ -73,6 +73,7 @@ window.onclick = function(event) {
         gameOverModal.style.display = "none";
     }
 };
+
 
 // winnerWinner() Modal
 function winnerWinner() {

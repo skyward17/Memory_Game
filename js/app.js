@@ -1,6 +1,6 @@
 function reset() {
-    //welcome();
-    clearStars();
+    welcome();
+    //clearStars();
     //shuffle();
 
 };
