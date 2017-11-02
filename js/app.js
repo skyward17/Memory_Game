@@ -1,6 +1,7 @@
 function reset() {
     welcome();
-    //clearStars();
+    clearStars();
+    starCount();
     //shuffle();
 
 };

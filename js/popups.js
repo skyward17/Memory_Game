@@ -1,9 +1,5 @@
 // Modals for Welcome and GameOver PopUps
 
-// Get the <span> element that closes the modal
-//const span = document.getElementsByClassName("close")[0];
-
-
 // Welcome Modal
 const welcomeModal = document.getElementById("welcome_modal");
 
@@ -96,8 +92,7 @@ function starCount() {
 function clearStars() {
     const starCount = document.getElementsByClassName("fa fa-star").length;
     const stars = document.getElementById("stars");
-    for (let i = 0; i < starCount; i++) {
-        stars.removeChild(stars.childNodes[0]);
+    while (stars.firstChild) {
+            stars.removeChild(stars.firstChild);
     }
-    console.log(starCount);
 };
