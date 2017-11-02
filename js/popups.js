@@ -36,10 +36,42 @@ function playersName() {
     displayName.innerHTML = `Player: ${playerNameStore}`;
 };
 
-// Difficulty Select
-function starsEasy() {
 
+
+// Difficulty Selects (Easy, Medium, Hard)
+// EASY
+function starsEasy() {
+    for (let i = 0; i < 5; i++) {
+        const stars = document.getElementById("stars"); // Grab Stars ID
+        const listItem = document.createElement("li"); // Create a li
+        stars.appendChild(listItem); // Add li to stars ID
+        listItem.setAttribute("class", "fa fa-star"); // Add Class "fa fa-star" to each li
+    }
+    return starCount();
 };
+
+// MEDIUM
+function starsMedium() {
+    for (let i = 0; i < 4; i++) {
+        const stars = document.getElementById("stars"); // Grab Stars ID
+        const listItem = document.createElement("li"); // Create a li
+        stars.appendChild(listItem); // Add li to stars ID
+        listItem.setAttribute("class", "fa fa-star"); // Add Class "fa fa-star" to each li
+    }
+    return starCount();
+};
+
+//HARD
+function starsHard() {
+    for (let i = 0; i < 2; i++) {
+        const stars = document.getElementById("stars"); // Grab Stars ID
+        const listItem = document.createElement("li"); // Create a li
+        stars.appendChild(listItem); // Add li to stars ID
+        listItem.setAttribute("class", "fa fa-star"); // Add Class "fa fa-star" to each li
+    }
+    return starCount();
+};
+
 
 
 // GameOver() Modal
@@ -72,3 +104,13 @@ displayName.innerHTML = `Congradulations! ${playerNameStore}`;
 
 // Click Count
 // Play Again?  Same as reset()
+
+// Stars & Moves.  Removes a star and updates # of stars Remaining
+function starCount() {
+    const starCount = document.getElementsByClassName("fa fa-star").length; // Counts star elements
+    const movesCount = document.getElementById("moves-count");
+    movesCount.innerHTML = `${starCount}`; // Updates moves remaining
+};
+
+
+//star.remove(); // removes a star class
