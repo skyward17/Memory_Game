@@ -52,7 +52,7 @@ function difficultyLevel(level) {
 // GameOver() Modal
 const gameOverModal = document.getElementById("gameOver_modal");
 
-// When Window Loads displays Welcome Modal
+// When user no longer has moves
 function gameOver() {
     gameOverModal.style.display = "block";
 };

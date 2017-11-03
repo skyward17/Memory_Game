@@ -1,19 +1,25 @@
-function reset() {
-    welcome();
-    clearStars();
-    starCount();
-    //shuffle(cardPile);
+// Loads page and game components
+function loadGame() {
+    welcome(); // Launches Welcome Modal
+    runGame(); // Launches runGame which houses game components
 };
 
-/*
- * Create a list that holds all of your cards
+// Resets game components
+function reset() {
+    welcome();
+    difficultyLevel(mediumDif); // Default
+    starCount();
+    shuffle(cards);
+};
+
+
+// Array that holds the cards
 let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
-//let cardPile = cards.map(card => card.repeat(1)); //
 //let cardPile = cards.copyWithin(); // Might just be easier to loop 2 cards in the onclick process
-console.log(shuffle(cardPile));
- */
+console.log(shuffle(cards)); // For testing
 
 
+// Loop testing in test_code.js file
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -36,6 +42,37 @@ function shuffle(array) {
     return array;
 }
 
+// runGame() handles user interactions with the game
+// Runs when page Loads
+function runGame() {
+      shuffle(cards);
+      difficultyLevel(mediumDif); // Default difficultyLevel to medium
+// function variables
+    for(let i = 0; i < starCount; i++) {  // Moves Check Loop
+        // Traverse DOM onclick
+        // innerHTML card from shuffle array
+        // move card from shuffle Array to activeCard Array
+        while (ActiveCard.length <= 1) {  // User Click Loops while one - two cards active
+            if (activeCard[0] === activeCard[1]) {
+                // removes cards from shuffle and activeCard arrays
+                // Loop ends as Active card length empty
+                if (cards.length > 0) {
+                    winnerWinner(); // runs winner condition function for end game
+                } else {
+                    // return to User Click Loop
+                }
+            } else {
+                // Flip Card back by removing innerHTML
+                // Remove cards from activeCard and place back into shuffle array
+                // remove star
+            } // if activeCard Match
+
+
+
+      } //User Click Loop
+    } // Moves Check Loop
+    //gameOver(); // Once starCount is exhaused runs gameOver fucntion
+};
 
 /*
  * set up the event listener for a card. If a card is clicked:

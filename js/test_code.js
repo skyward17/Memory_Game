@@ -1,7 +1,11 @@
 
 
-
-runGame() {
+// Runs when page Loads
+// Default difficultyLevel to medium
+function runGame() {
+      shuffle(cards);
+      difficultyLevel(mediumDif);
+      starCount();
 // function variables
     for(let i = 0; i < starCount; i++) {  // Moves Check Loop
         // Traverse DOM onclick
@@ -11,7 +15,7 @@ runGame() {
             if (activeCard[0] === activeCard[1]) {
                 // removes cards from shuffle and activeCard arrays
                 // Loop ends as Active card length empty
-                if (shuffle.length > 0) {
+                if (cards.length > 0) {
                     winnerWinner(); // runs winner condition function for end game
                 } else {
                     // return to User Click Loop
