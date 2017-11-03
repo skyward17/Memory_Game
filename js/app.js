@@ -48,7 +48,7 @@ function runGame() {
       shuffle(cards);
       difficultyLevel(mediumDif); // Default difficultyLevel to medium
 // function variables
-    for(let i = 0; i < starCount; i++) {  // Moves Check Loop
+    for (let i = 0; i < starCount; i++) {  // Moves Check Loop
         // Traverse DOM onclick
         // innerHTML card from shuffle array
         // move card from shuffle Array to activeCard Array
@@ -84,3 +84,22 @@ function runGame() {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+/*
+GAME components
+*/
+// Stars & Moves.  Removes a star and updates # of stars Remaining
+function starCount() {
+    const starCount = document.getElementsByClassName("fa fa-star").length; // Counts star elements
+    const movesCount = document.getElementById("moves-count");
+    movesCount.innerHTML = `${starCount}`; // Updates moves remaining
+};
+
+// Removes all stars
+function clearStars() {
+    const starCount = document.getElementsByClassName("fa fa-star").length;
+    const stars = document.getElementById("stars");
+    while (stars.firstChild) {
+            stars.removeChild(stars.firstChild);
+    }
+};

@@ -16,10 +16,11 @@ span.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == welcomeModal) {
+    if (event.target === welcomeModal) {
         welcomeModal.style.display = "none";
     }
 };
+
 
 // Player Name array
 let plrEntrName = document.getElementById("playerName");
@@ -65,34 +66,23 @@ function close() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == gameOverModal) {
+    if (event.target === gameOverModal && welcomeModal) {
         gameOverModal.style.display = "none";
+        welcomeModal.style.display = "none";
     }
 };
 
+window.onclick = function(event) {
+    if (event.target === welcomeModal) {
+        welcomeModal.style.display = "none";
+    }
+};
 
 // winnerWinner() Modal
 function winnerWinner() {
-const displayName = document.getElementById("playersNameHere");
-displayName.innerHTML = `Congradulations! ${playerNameStore}`;
-
+    const displayName = document.getElementById("playersNameHere");
+    displayName.innerHTML = `Congradulations! ${playerNameStore}`;
 };
 
 
 // Play Again?  Same as reset()
-
-// Stars & Moves.  Removes a star and updates # of stars Remaining
-function starCount() {
-    const starCount = document.getElementsByClassName("fa fa-star").length; // Counts star elements
-    const movesCount = document.getElementById("moves-count");
-    movesCount.innerHTML = `${starCount}`; // Updates moves remaining
-};
-
-// Removes all stars
-function clearStars() {
-    const starCount = document.getElementsByClassName("fa fa-star").length;
-    const stars = document.getElementById("stars");
-    while (stars.firstChild) {
-            stars.removeChild(stars.firstChild);
-    }
-};
