@@ -2,12 +2,15 @@ function reset() {
     welcome();
     clearStars();
     starCount();
-    //shuffle();
-
+    //shuffle(cardPile);
 };
 
 /*
  * Create a list that holds all of your cards
+let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
+//let cardPile = cards.map(card => card.repeat(1)); //
+//let cardPile = cards.copyWithin(); // Might just be easier to loop 2 cards in the onclick process
+console.log(shuffle(cardPile));
  */
 
 
