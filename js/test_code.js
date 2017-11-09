@@ -4,7 +4,7 @@
 // Default difficultyLevel to medium
 function runGame() {
       shuffle(cards);
-      dealCards();
+      dealCards(cards); // Takes in cards array
       difficultyLevel(mediumDif);
       starCount();
 // function variables
@@ -44,19 +44,16 @@ function runGame() {
 runGame() function parts
 */
 // Global variables
-let grabDeck = document.getElementsByClassName("deck"); // Grabs the deck ul
+//let grabDeck = document.getElementsByClassName("deck"); // Grabs the deck ul
 let grabLi = document.getElementsByTagName("li");
 let removeAttr = document.getElementsByTagName("li")[0].removeAttribute("class");
 // Place all cards in DOM
 // Idea: condense down to something like const listItem = document.createElement("li").setAttribute("class", "card");
-function dealCards() {  // Grabs DOM element ul and creates li class "cards"
-    for (const card in cards) { // While there are cards in the cards array for in loop
-        grabDeck;//document.getElementsByClassName("deck"); // Grabs the deck ul
-        const listItem = document.createElement("li"); // Create a li
-        listItem.setAttribute("class", "card");  // Create class
+function dealCards(playcards) {  // Grabs DOM element ul and creates li class "cards"
+    for (const card in playcards) { // While there are cards in the cards array for in loop
         grabLi;//document.getElementsByTagName("li"); // Grabs newly created li
         const placeCard = document.createElement("i"); // Creates an i element
-        placeCard.setAttribute("class", cards[0]); // Places a card from the cards array
+        placeCard.setAttribute("class", playcards[0]); // Places a card from the cards array
     }
 };
 
