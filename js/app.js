@@ -72,7 +72,6 @@ function dealCards() {  // Grabs DOM element ul and creates li class "cards"
         cardSlots.appendChild(placeCard);
         document.getElementById("buildDeck").append(cardSlots);
     }
-    console.log(cards.length);
 };
 
  // Flip Card
@@ -121,9 +120,15 @@ function loadGame() {
 // Resets game components except username (can be updated by user)
 function reset() {
     welcome();
-    difficultyLevel(mediumDif); // Default
-    starCount();
-    shuffle(cards);
+    clearDeck();
+    runGame();
+};
+
+function clearDeck() {
+    const clearCards = document.getElementById("buildDeck");  // Parent Node
+        while (clearCards.firstChild) {
+            clearCards.removeChild(clearCards.firstChild);  // Selects the first child in the Parent Node and removes it.
+        }
 };
 
 // Shuffle function from http://stackoverflow.com/a/2450976
