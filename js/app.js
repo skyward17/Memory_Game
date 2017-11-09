@@ -16,11 +16,11 @@ console.log(shuffle(cards)); // For testing
 
  // Runs when page Loads
  // Default difficultyLevel to medium
- function runGame() {
-       shuffle(cards);
-       difficultyLevel(mediumDif);
-       starCount();
-       dealCards();
+function runGame() {
+      shuffle(cards);
+      difficultyLevel(mediumDif);
+      starCount();
+      dealCards();
 /*
      for(let i = 0; i < starCount; i++) {  // Moves Check Loop
          const cardSlots = document.querySelectorAll("li"); // Select all li elements to traverse
@@ -67,13 +67,9 @@ function dealCards() {  // Grabs DOM element ul and creates li class "cards"
     for (let i = 0; i < cards.length; i++) {
         const cardSlots = document.createElement("li");
         cardSlots.setAttribute("class", "card");
-        console.log("Test i");
-        for (let j = 0; j < cards.length; j++) {
-           const placeCard = document.createElement("i");
-           placeCard.setAttribute("class", "cardzzz");
-           cardSlots.appendChild(placeCard);
-        }
-        console.log("Test j");
+        const placeCard = document.createElement("i");
+        placeCard.setAttribute("class", cards[i]);
+        cardSlots.appendChild(placeCard);
         document.getElementById("buildDeck").append(cardSlots);
     }
     console.log(cards.length);
