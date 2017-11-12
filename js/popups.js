@@ -46,7 +46,7 @@ function difficultyLevel(level) {
         stars.appendChild(listItem); // Add li to stars ID
         listItem.setAttribute("class", "fa fa-star"); // Add Class "fa fa-star" to each li
     }
-    starCount();
+    countStars();
 };
 
 
@@ -56,6 +56,8 @@ const gameOverModal = document.getElementById("gameOver_modal");
 // When user no longer has moves
 function gameOver() {
     gameOverModal.style.display = "block";
+    const displayName = document.getElementById("playersNameHere");
+    displayName.innerHTML = `Congradulations! ${playerNameStore}`;
 };
 
 // When the user clicks on close text close the modal
