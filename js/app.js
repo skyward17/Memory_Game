@@ -1,9 +1,10 @@
 // Array that holds the cards
 let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
-console.log(shuffle(cards)); // For testing
+console.log(cards); // For testing
+
+let gameDeck = cards.slice();
 
 let activeCards = [];
-console.log(activeCards); // For testing
 
 let matchedCards = [];
 
@@ -14,7 +15,7 @@ let matchedCards = [];
       // RUNGAME LOOP BUILD
 function runGame() {
     shuffle(cards);
-    dealCards(cards); // Takes in cards array
+    dealCards(cards); // Takes in gameDeck array
     difficultyLevel(mediumDif);
     starCount();
     userInter();
@@ -24,9 +25,15 @@ function userInter() {
     const cardSpots = document.querySelectorAll("li");  // Grab all li elements
     for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
         cardSpots[k].addEventListener("click", function() {
-        let getDeck = document.getElementById("cardIntAct");
-        cardSpots[k].className = "card open show";
-        console.log("TEST 1 2 3");
+            //if ()
+        //if ()
+        cardSpots[k].className = "card open show";  // flip card
+        activeCards.push(cardSpots[k].firstChild); // takes first child (the card) and places in activeCards
+        gameDeck.pop(cardSpots[k].firstChild); // removes the active card from the cards array
+        console.log(gameDeck); // For testing
+        console.log(`TEST: ${gameDeck.length}`); // For testing
+        console.log(activeCards); // For testing
+        console.log(activeCards.length); // For testing
         });
 
     }
@@ -139,7 +146,8 @@ function loadGame() {
 // Resets game components except username (can be updated by user)
 function reset() {
     welcome();
-    clearDeck();  // Clears buildDeck
+    clearDeck();  // Clears gameDeck
+    clearCardDecks();  //Clears gameDeck, activeCards and matchedCards
     runGame();
 };
 
@@ -149,6 +157,13 @@ function clearDeck() {
         while (clearCards.firstChild) {
             clearCards.removeChild(clearCards.firstChild);  // Selects the first child in the Parent Node and removes it.
         }
+};
+
+// Clears buildDeck, activeCards and matchedCards
+function clearCardDecks() {
+    buildDeck.length = 0;
+    activeCards.length = 0;
+    matchedCards.length = 0;
 };
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -165,6 +180,8 @@ function shuffle(array) {
 
     return array;
 };
+
+
 
 // Stars & Moves.  Removes a star and updates # of stars Remaining
 function starCount() {
