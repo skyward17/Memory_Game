@@ -66,9 +66,8 @@ function close() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target === gameOverModal && welcomeModal) {
+    if (event.target === gameOverModal) {
         gameOverModal.style.display = "none";
-        welcomeModal.style.display = "none";
     }
 };
 

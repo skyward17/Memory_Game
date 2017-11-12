@@ -8,10 +8,10 @@ function runGame() {
       difficultyLevel(mediumDif);
       starCount();
 // function variables
-    for(let i = 0; i < starCount; i++) {  // Moves Check Loop
+    for (let i = 0; i < starCount; i++) {  // Moves Check Loop
         const cardSlots = document.querySelectorAll("li"); // Select all li elements to traverse
-        for (let i = 0; i < cardSlots.length; i++) {
-            cardSlots[i].addEventListener("click", function() {
+        for (let j = 0; j < cardSlots.length; j++) {
+            cardSlots[j].addEventListener("click", function() {
             //do something with the click ...
             flipCard(); // should show the card and remove it from the cards array
             /* // As long as one card is active player can select another.
@@ -78,6 +78,38 @@ function dontMatch() {  //Removes current class and replaces with class "card"
     removeAttr;
     grabLi.setAttribute("class", "card");
 };
+
+// RUNGAME LOOP BUILD
+function runGame() {
+      shuffle(cards);
+      dealCards(cards); // Takes in cards array
+      difficultyLevel(mediumDif);
+      starCount();
+for (let i = 0; i < starCount; i++) {  // Moves Check Loop End Result gameOver()
+    for (let j = 0; j < cards.length; j++) { // Cards remaning Loop End Result winnerWinner()
+        const cardSpots = document.querySelectorAll("li");  // Grab all li elements
+        for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
+        cardSpots[k].addEventListener("click", function() {
+        // Conditional Loops for user interaction with cards
+            for (let l = 2; l > activeCards.length; l++) { // ActiveCards arrays loop if cards are in play
+            flipCard();
+            if (activeCards[0] === activeCards[1] || ) { //
+
+            }
+   // If activeCards array is equal to or less than 1
+   // Turn over card and add card to activeCards array
+   //
+
+
+ } // activeCards Loop
+      });
+  }
+    }
+    winnerWinner(); // No cards remain in cards array.  All cards matched and were moved to matchedCards array
+        }
+        gameOver(); // No moves remain and winning condition was not met.
+};
+
 
 
 // SAVE //
