@@ -21,6 +21,11 @@ window.onclick = function(event) {
     }
 };
 
+window.onclick = function(event) {
+    if (event.target === welcomeModal) {
+        welcomeModal.style.display = "none";
+    }
+};
 
 // Player Name array
 let plrEntrName = document.getElementById("playerName");
@@ -57,7 +62,7 @@ const gameOverModal = document.getElementById("gameOver_modal");
 function gameOver() {
     gameOverModal.style.display = "block";
     const displayName = document.getElementById("playersNameHere");
-    displayName.innerHTML = `Congradulations! ${playerNameStore}`;
+    //displayName.innerHTML = `Congradulations! ${playerNameStore}`;
 };
 
 // When the user clicks on close text close the modal

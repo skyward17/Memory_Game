@@ -1,14 +1,11 @@
 // Array that holds the cards
 let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
-console.log(cards); // For testing
 
 let gameDeck = cards.slice();
 
 let activeCards = [];
 
 let matchedCards = [];
-
-// Loop testing in test_code.js file
 
  // Runs when page Loads
  // Default difficultyLevel to medium
@@ -18,57 +15,130 @@ function runGame() {
     dealCards(cards); // Takes in gameDeck array
     difficultyLevel(mediumDif);
     countStars();
-    runLoop();
+    gameLoop();
+
     //userInter();
 };
 
-function runLoop() {
-    for (let i = 0; i < countStars(); i++) {  // Moves Check Loop End Result gameOver()
-          console.log("TEST: starCount");
-          for (let j = 0; j < gameDeck.length; j++) { // Cards remaning Loop End Result winnerWinner()
-              console.log("TEST: Check winnerWinner");
-              userInter();
-          } // For winnerWinner
-          winnerWinner(); // No cards remain in cards array.  All cards matched and were moved to matchedCards array
-          console.log("TEST: winnerWinner"); // For testing
-    } // For countStars
-    gameOver(); // No moves remain and winning condition was not met.
-    console.log("TEST: gameOver");  // For testing
-    console.log();
-};
+/* V1
+function gameLoop() {
 
-function userInter() {
-    const cardSpots = document.querySelectorAll("li");  // Grab all li elements
-    for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
-        cardSpots[k].addEventListener("click", function() {
-        // Log "click" by user
-            for (m = 2; m <= activeCards.length; m--) { // activeCards 0-2 cards Once full (2) then check match
-                cardSpots[k].className = "card open show";  // Flip card to show card
-                activeCards.push(cardSpots[k].firstChild); // Takes first child (the card) and places in activeCards
-                gameDeck.pop(cardSpots[k].firstChild); // Removes the active card from the cards array
-                console.log(activeCards);  // For testing
-                console.log(activeCards.length); // For testing
+              const cardSpots = document.querySelectorAll("li");  // Grab all li elements
+                  for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
+                        cardSpots[k].addEventListener("click", function() {
+                        cardSpots[k].className = "card open show";  // Flip card to show card
+                            activeCards.push(cardSpots[k].firstChild.className); // Takes first child (the card) and places in activeCards
+                            gameDeck.pop(cardSpots[k].firstChild.className); // Removes the active card from the cards array
+                                if (activeCards.length <2) {
+                                for (let m = 0; m < 2; m++) {
+                                //if (activeCards.length > 1) {
+                                    //if (cardSpots[k].firstChild.className === cardSpots[k].firstChild.className) { // className gets the class, card, name
+                                    if (activeCards[0] === activeCards[1]) {
+                                        matchedCards.push(activeCards.slice());
+                                        console.log(cardSpots[k].firstChild.className);  //
+                                        console.log("true");
+                                    } else {
+                                        console.log("false");
+                                        //cardSpots[k].className = "card"; // Flip card back to blank
+                                        gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in gameDeck
+                                        activeCards.splice();  // Clean out card in activeCards
+                                        console.log(activeCards);  // For testing
+                                        console.log(activeCards.length); // For testing
+                                        // Remove a star
+                                    }
+
+
+                            }
+                          } else {
+
+                          }
+                         })
+                       }
+                     };
+/*
+                      if (activeCards[0] === activeCards[1]) {
+                          console.log(activeCards[0]);
+                          console.log("activeCards TRUE");
+                      } else {
+                          console.log("activeCards FALSE");
+                      }
+                  console.log(activeCards);  // For testing
+                  console.log(activeCards.length); // For testing
+                  console.log(gameDeck);
+
+                      if (activeCards.length >= 2) {
+//Compare the url source of the two images
+      if (firstCard === secondCard) {
+        ///code to freeze the correct cards goes here
+      } else {
+        ///code to reflip cards goes here
+??? Put the function in the loop
+
+                      //for (m = 2; m <= activeCards.length; m--) { // activeCards 0-2 cards Once full (2) then check match
+
+                      }
+                      if (activeCards[0] === activeCards[1]) { //Check to see if cards match after selecting 2
+                          cardSpots[k].className = "card match"; // Hold cards open
+                          cardsMatch = activeCards.slice(); // Take the 2 cards in activeCards and place in matchedCards
+                          activeCards.splice();  // Clean out card in activeCards
+                          console.log(activeCards);  // For testing
+                          console.log(matchedCards.length); // For testing
+                      } else {
+                          cardSpots[k].className = "card"; // Flip card back to blank
+                          gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in gameDeck
+                          activeCards.splice();  // Clean out card in activeCards
+                          console.log(activeCards);  // For testing
+                          console.log(activeCards.length); // For testing
+                          // Remove a star
+*/
+
+// V2
+function gameLoop() {
+let starCounter = document.getElementsByClassName("fa fa-star").length;
+    for (let a = 0; a < 2; a++) {  //If there are stars (moves) remaining do... When there are not gameOver
+    console.log("Test starCounter"); // TESTING
+        for (let b = 0; b < cards.length; b++) {  //If there are cards in the cards array do... When not winnerWinner
+        console.log("Test cards.length");
+            if (activeCards.length <= 1) {  // If there are 0 up to 1 card in the activeCards pile do..
+            console.log(activeCards.length);
+                const cardSpots = document.querySelectorAll("li");  // Grab all li elements
+                for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
+                        cardSpots[k].addEventListener("click", function() {
+                        cardSpots[k].className = "card open show";  // Flip card to show card
+                        activeCards.push(cardSpots[k].firstChild.className); // Takes first child (the card) and places in activeCards
+                        gameDeck.pop(cardSpots[k].firstChild.className); // Removes the active card from the cards array
+}); //After click loop and adding card to activeCards and removing from gameDeck pile check conditions
+                        if (activeCards[0] === activeCards[1]) {
+                            matchedCards.push(activeCards.slice());
+                            console.log(activeCards);  //
+                            console.log("true");
+                        } else {
+                           console.log("false");
+                           //cardSpots[k].className = "card"; // Flip card back to blank
+                           gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in gameDeck
+                           activeCards.splice();  // Clean out card in activeCards
+                           console.log(activeCards);  // For testing
+                           console.log(activeCards.length); // For testing
+                           // Remove a star
+                        }
 }
-            if (activeCards[0] === activeCards[1]) { //Check to see if cards match after selecting 2
-                cardSpots[k].className = "card match"; // Hold cards open
-                cardsMatch = activeCards.slice(); // Take the 2 cards in activeCards and place in matchedCards
-                activeCards.splice();  // Clean out card in activeCards
-                console.log(activeCards);  // For testing
-                console.log(matchedCards.length); // For testing
-            } else {
-                cardSpots[k].className = "card"; // Flip card back to blank
-                gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in gameDeck
-                activeCards.splice();  // Clean out card in activeCards
-                console.log(activeCards);  // For testing
-                console.log(activeCards.length); // For testing
-                // Remove a star
-            }
-         //} // For cards in activeCards
-         console.log("test");
+}
 
-        });
-    }
+}
+// winnerWinner();
+}
+// gameOver();
+}; //END gameLoop()
+
+function gameUserFuncs() {
+
+    clicks = 0,
 };
+
+// Tracks the total number of clicks as well as how many are made for a match set
+function userClicks() {
+    return gameUserFuncs.clicks += 1;
+},
 
  /*
  runGame() function parts
@@ -177,10 +247,9 @@ function shuffle(array) {
 };
 
 
-
 // Stars & Moves.  Removes a star and updates # of stars Remaining
 function countStars() {
-    const starCount = document.getElementsByClassName("fa fa-star").length; // Counts star elements
+    let starCount = document.getElementsByClassName("fa fa-star").length; // Counts star elements
     const movesCount = document.getElementById("moves-count");
     movesCount.innerHTML = `${starCount}`; // Updates moves remaining
     return starCount;
@@ -188,7 +257,7 @@ function countStars() {
 
 // Removes all stars
 function clearStars() {
-    const starCount = document.getElementsByClassName("fa fa-star").length;
+    let starCount = document.getElementsByClassName("fa fa-star").length; // Counts star elements
     const stars = document.getElementById("stars");
     while (stars.firstChild) {
             stars.removeChild(stars.firstChild);

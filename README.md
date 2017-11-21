@@ -34,6 +34,5 @@ CleanUp List:
 
 Bug List:
   Modal:
-  -User Clicks off modal does not close modal.
+  -User Clicks off modal does not close modal winnerWinner & gameOver.  Maybe make close(modals) rather than close()
   -User Name spacing in <span>
-  -difficultyLevel() clearStars issues when first loading
