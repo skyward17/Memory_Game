@@ -303,30 +303,3 @@ function gameLoop() {
 }
 // gameOver();
 }; //END gameLoop()
-
-                                if (activeCards.length <2) {
-                                for (let m = 0; m < 2; m++) {
-                                //if (activeCards.length > 1) {
-                                    //if (cardSpots[k].firstChild.className === cardSpots[k].firstChild.className) { // className gets the class, card, name
-                                    if (activeCards[0] === activeCards[1]) {
-                                        matchedCards.push(activeCards.slice());
-                                        console.log(cardSpots[k].firstChild.className);  //
-                                        console.log("true");
-                                    } else {
-                                        console.log("false");
-                                        //cardSpots[k].className = "card"; // Flip card back to blank
-                                        gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in gameDeck
-                                        activeCards.splice();  // Clean out card in activeCards
-                                        console.log(activeCards);  // For testing
-                                        console.log(activeCards.length); // For testing
-                                        // Remove a star
-                                    }
-
-
-                            }
-                          } else {
-
-                          }
-                         })
-                       }
-                     };
