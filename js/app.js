@@ -40,24 +40,34 @@ const cardSpots = document.querySelectorAll("li");
             console.log("winnerWinner");  // For Testing
         } else {  // Keep going
             cardSpots[k].className = "card open show";  // Flip card to show card
-            activeCards.push(cardSpots[k].firstChild.className); // Takes first child (the card) and places in activeCards
-            gameDeck.pop(cardSpots[k].firstChild.className); // Removes the active card from the cards array
+            activeCards.push(cardSpots[k]);
+            let playCard = cardSpots[k].firstChild.className; // takes card name 'i' from 'li' element
+            //activeCards.push(cardSpots[k].firstChild.className); // Takes first child (the card) and places in activeCards
+            gameDeck.pop(cardSpots[k].firstChild.className); // Removes the active card from the gameDeck array
+            console.log(playCard);
+            console.log("activeCards");
             console.log(activeCards);
             // userClicks
             if (activeCards.length === 2) {  // Check to see if there are two cards to compare in activeCards
-                  let activeCard_1 = activeCards[0];  //
-                  let activeCard_2 = activeCards[1];
-                  console.log("activeCard_1");
-                  console.log(activeCard_1);
-                  if (activeCard_1 === activeCard_2) { // Compare both cards in activeCards
+                  //activeCards[0];  //
+                  //activeCards[1];
+                  console.log("activeCards[0]");
+                  console.log(activeCards[0].firstChild.className);
+                  if (activeCards[0].firstChild.className === activeCards[1].firstChild.className) { // Compare both cards in activeCards
                   matchedCards.push(activeCards.slice());  // Take both cards in their open state and place into matched cards pile
                   activeCards.splice();  // Clean out card in activeCards
-                  console.log(activeCard_1);  // For testing
+                  console.log(activeCards[0]);  // For testing
                   console.log("CardMatch");  // For testing
                   } else { // No Match
-                      activeCards.className = "card";  // Flips cards back over ***was cardSpots[k]
+                      for (let card of activeCards) {
+                          card.className = "card";
+                          console.log("card of cards");
+                      };
+                      console.log(activeCards);
+                      //activeCards.className = "card";  // Flips cards back over ***was cardSpots[k]
                       gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in cards
                       activeCards.splice();  // Clean out card in activeCards
+                      console.log("Cards do not Match");
                       // REMOVE STAR
                   } // No Match
             //} // activeCards
