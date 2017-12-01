@@ -28,29 +28,22 @@ const cardSpots = document.querySelectorAll("li");
     cardSpots[k].addEventListener("click", function() {
     let starCounter = document.getElementsByClassName("fa fa-star").length;   // Get the number of stars remaining
     console.log(starCounter); // For tesing
-    console.log(gameDeck);
     if (starCounter = 0) {  //If there are stars (moves) remaining do... When there are not gameOver
         // gameOver();
         console.log("gameOver");  // For Testing
-        console.log(starCounter);  // For testing
     } else {  // Keep going
         if (gameDeck.length = 0) {
             // winnerWinner();
-            console.log(gameDeck.length);
             console.log("winnerWinner");  // For Testing
         } else {  // Keep going
             cardSpots[k].className = "card open show";  // Flip card to show card
-            activeCards.push(cardSpots[k]);
             let playCard = cardSpots[k].firstChild.className; // takes card name 'i' from 'li' element
-            //activeCards.push(cardSpots[k].firstChild.className); // Takes first child (the card) and places in activeCards
-            gameDeck.pop(cardSpots[k].firstChild.className); // Removes the active card from the gameDeck array
+            activeCards.push(cardSpots[k]);
+            gameDeck.pop(cardSpots[k]); // Removes the active card from the gameDeck array
             console.log(playCard);
             console.log("activeCards");
-            console.log(activeCards);
             // userClicks
             if (activeCards.length === 2) {  // Check to see if there are two cards to compare in activeCards
-                  //activeCards[0];  //
-                  //activeCards[1];
                   console.log("activeCards[0]");
                   console.log(activeCards[0].firstChild.className);
                   if (activeCards[0].firstChild.className === activeCards[1].firstChild.className) { // Compare both cards in activeCards
@@ -59,16 +52,14 @@ const cardSpots = document.querySelectorAll("li");
                   console.log(activeCards[0]);  // For testing
                   console.log("CardMatch");  // For testing
                   } else { // No Match
-                      for (let card of activeCards) {
+                      for (let card of activeCards) {  // Loop through cards in active cards and change classNames to "card"
                           card.className = "card";
-                          console.log("card of cards");
                       };
-                      console.log(activeCards);
-                      //activeCards.className = "card";  // Flips cards back over ***was cardSpots[k]
                       gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in cards
                       activeCards.splice();  // Clean out card in activeCards
                       console.log("Cards do not Match");
-                      // REMOVE STAR
+                          const stars = document.getElementById("stars"); // REMOVE STAR
+                          stars.removeChild(stars.firstChild);
                   } // No Match
             //} // activeCards
 
@@ -106,34 +97,6 @@ function dealCards() {  // Grabs DOM element ul and creates li class "cards"
         document.getElementById("buildDeck").append(cardSlots);
     }
 };
-
- // Flip Card
- function flipCard () { // Removes current class and replaces with class "card open show"
-     //grabDeck; // Might not need?
-     //const takeLi = document.querySelectorAll("li");
-    document.querySelectorAll("li")[0].className = "card open show"; // Will this replace class or add or bombout?
-     // Place card to activeCards array from cards arrays
-     // Remove card from cards array
-     console.log("TEST: flipcard");
- };
-
- // Cards Match
- function cardsMatch() {  // Removes current class and replaces with class "card match"
-     grabDeck;
-     grabLi.className = "card match";
-     // Place cards to matchedCards array
-     // Remove from activeCards array
-     // Add a move click to count # of clicks user made
- };
-
- // Cards Don't Match
- function dontMatch() {  //Removes current class and replaces with class "card"
-     grabDeck;
-     grabLi.className = "card";
-     // Move cards from activeCards array back to cards array
-     // Remove a star
- };
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
