@@ -49,12 +49,16 @@ const cardSpots = document.querySelectorAll("li");
                   if (activeCards[0].firstChild.className === activeCards[1].firstChild.className) { // Compare both cards in activeCards
                   matchedCards.push(activeCards.slice());  // Take both cards in their open state and place into matched cards pile
                   activeCards.splice();  // Clean out card in activeCards
+                  // className = cardsMatch
                   console.log(activeCards[0]);  // For testing
                   console.log("CardMatch");  // For testing
                   } else { // No Match
-                      for (let card of activeCards) {  // Loop through cards in active cards and change classNames to "card"
-                          card.className = "card";
+                      function flipCard() { // Flips card
+                          for (let card of activeCards) {  // Loop through cards in active cards and change classNames to "card"
+                              card.className = "card";
+                          }
                       };
+                      setTimeout(flipCard, 3000); // Stalls card flip during no match condition
                       gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in cards
                       activeCards.splice();  // Clean out card in activeCards
                       console.log("Cards do not Match");
