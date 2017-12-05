@@ -78,11 +78,16 @@ function flipCard() { // Flips card
 function gameLoop() {
 // Functions and Variables
 const cardSpots = document.querySelectorAll("li");
-function flipCard() { // Flips card
+function flipCardBack() { // Flips card
     for (let card of activeCards) {  // Loop through cards in active cards and change classNames to "card"
         card.className = "card";
     }
 };
+function holdCardsOpen() {
+    for (let card of activeCards) {
+        card.className = "card match";
+    }
+}
     for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
         cardSpots[k].addEventListener("click", function() {
         let starCounter = document.getElementsByClassName("fa fa-star").length;   // Get the number of stars remaining
@@ -98,6 +103,7 @@ function flipCard() { // Flips card
                   console.log("activeCards[0]");
                   console.log(activeCards[0].firstChild.className);
                   if (activeCards[0].firstChild.className === activeCards[1].firstChild.className) { // Compare both cards in activeCards
+                      holdCardsOpen();
                       matchedCards.push(activeCards.slice());  // Take both cards in their open state and place into matched cards pile
                       activeCards.splice(0, 2);  // Clean out card in activeCards
                       console.log(activeCards.length); // For Testing
@@ -109,14 +115,15 @@ function flipCard() { // Flips card
                   console.log(activeCards[0]);  // For testing
                   console.log("CardMatch");  // For testing
                   } else { // No Match
-                      setTimeout(flipCard, 2000); // Stalls card flip during no match condition
+                      setTimeout(flipCardBack, 2000); // Stalls card flip during no match condition
                       gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in cards
                       activeCards.splice(0, 2);  // Clean out card in activeCards
                       console.log("Cards do not Match"); // For Testing
                       console.log(activeCards.length); // For Testing
                           const stars = document.getElementById("stars"); // REMOVE STAR
                           stars.removeChild(stars.firstChild);
-                          if (starCounter = 0) {  //If there are stars (moves) remaining do... When there are not gameOver
+                          console.log(starCounter);
+                          if (starCounter < 1) {  //If there are stars (moves) remaining do... When there are not gameOver
                               // gameOver();
                               console.log("gameOver");  // For Testing
                           }
