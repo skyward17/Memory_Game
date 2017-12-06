@@ -19,75 +19,16 @@ function runGame() {
     gameLoop();
 };
 
-/////// V2 //////////
-/*
-function gameLoop() {
-// Functions and Variables
-const cardSpots = document.querySelectorAll("li");
-function flipCard() { // Flips card
-    for (let card of activeCards) {  // Loop through cards in active cards and change classNames to "card"
-        card.className = "card";
-    }
-};
-    for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
-    cardSpots[k].addEventListener("click", function() {
-    let starCounter = document.getElementsByClassName("fa fa-star").length;   // Get the number of stars remaining
-    if (starCounter = 0) {  //If there are stars (moves) remaining do... When there are not gameOver
-        // gameOver();
-        console.log("gameOver");  // For Testing
-    } else {  // Keep going
-        if (gameDeck.length = 0) {
-            // winnerWinner();
-            console.log("winnerWinner");  // For Testing
-        } else {  // Keep going
-            cardSpots[k].className = "card open show";  // Flip card to show card
-            let playCard = cardSpots[k].firstChild.className; // takes card name 'i' from 'li' element
-            activeCards.push(cardSpots[k]);
-            gameDeck.pop(cardSpots[k]); // Removes the active card from the gameDeck array
-            console.log(playCard);
-            console.log("activeCards");
-            // userClicks
-            if (activeCards.length === 2) {  // Check to see if there are two cards to compare in activeCards
-                  console.log("activeCards[0]");
-                  console.log(activeCards[0].firstChild.className);
-                  if (activeCards[0].firstChild.className === activeCards[1].firstChild.className) { // Compare both cards in activeCards
-                  matchedCards.push(activeCards.slice());  // Take both cards in their open state and place into matched cards pile
-                  activeCards.splice();  // Clean out card in activeCards
-                  // className = cardsMatch
-                  console.log(activeCards[0]);  // For testing
-                  console.log("CardMatch");  // For testing
-                  } else { // No Match
-                      setTimeout(flipCard, 2000); // Stalls card flip during no match condition
-                      gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in cards
-                      activeCards.splice();  // Clean out card in activeCards
-                      console.log("Cards do not Match");
-                          const stars = document.getElementById("stars"); // REMOVE STAR
-                          stars.removeChild(stars.firstChild);
-                  } // No Match
-            //} // activeCards
-
-            }  // gameOver
-          }  // winnerWinner
-        } // starCounter
-    });  // user interaction
-  } // Loop
-};
-*/
-
 /////////////// V3 ///////////////
 function gameLoop() {
 // Functions and Variables
 const cardSpots = document.querySelectorAll("li");
-function flipCardBack() { // Flips card
-    for (let card of activeCards) {  // Loop through cards in active cards and change classNames to "card"
-        card.className = "card";
+function cardState(state) { // Changes card states
+    for (let card of activeCards) {
+        if (state === "match") { card.className = "card match";}
+        if (state === "NoMatch") { card.className = "card";}
     }
 };
-function holdCardsOpen() {
-    for (let card of activeCards) {
-        card.className = "card match";
-    }
-}
     for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
         cardSpots[k].addEventListener("click", function() {
         let starCounter = document.getElementsByClassName("fa fa-star").length;   // Get the number of stars remaining
@@ -103,7 +44,7 @@ function holdCardsOpen() {
                   console.log("activeCards[0]");
                   console.log(activeCards[0].firstChild.className);
                   if (activeCards[0].firstChild.className === activeCards[1].firstChild.className) { // Compare both cards in activeCards
-                      holdCardsOpen();
+                      cardState("match");
                       matchedCards.push(activeCards.slice());  // Take both cards in their open state and place into matched cards pile
                       activeCards.splice(0, 2);  // Clean out card in activeCards
                       console.log(activeCards.length); // For Testing
@@ -115,18 +56,21 @@ function holdCardsOpen() {
                   console.log(activeCards[0]);  // For testing
                   console.log("CardMatch");  // For testing
                   } else { // No Match
-                      setTimeout(flipCardBack, 2000); // Stalls card flip during no match condition
+                      cardState("NoMatch");
+                      //setTimeout(cardState("NoMatch"), 2000); // Stalls card flip during no match condition
                       gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in cards
                       activeCards.splice(0, 2);  // Clean out card in activeCards
                       console.log("Cards do not Match"); // For Testing
                       console.log(activeCards.length); // For Testing
+                      if (starCounter > 1) {  //If there are stars (moves) remaining do... When there are not gameOver
                           const stars = document.getElementById("stars"); // REMOVE STAR
                           stars.removeChild(stars.firstChild);
                           console.log(starCounter);
-                          if (starCounter < 1) {  //If there are stars (moves) remaining do... When there are not gameOver
-                              // gameOver();
-                              console.log("gameOver");  // For Testing
-                          }
+
+                      } else {
+                          return gameOver();
+                          console.log("gameOver");  // For Testing
+                      }
                   } // No Match
             //} // activeCards
         } // starCounter

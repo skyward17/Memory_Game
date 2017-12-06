@@ -382,3 +382,21 @@ if (gameDeck.length = 0) {
     // winnerWinner();
     console.log("winnerWinner");  // For Testing
 }
+
+
+
+/////////////////////////////////////////////////////
+function cardState(state) {
+    let cardState = state;
+
+    for (let card of activeCards) {
+        if (state === "match") {
+            card.className = "card match";
+            console.log()
+        } else {
+            card.className = "card";
+        }
+    }
+}
+
+cardState("match");
