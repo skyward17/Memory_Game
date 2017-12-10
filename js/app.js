@@ -23,12 +23,14 @@ function runGame() {
 function gameLoop() {
 // Functions and Variables
 const cardSpots = document.querySelectorAll("li");
+
 function cardState(state) { // Changes card states
     for (let card of activeCards) {
         if (state === "match") { card.className = "card match";}
         if (state === "NoMatch") { card.className = "card";}
     }
 };
+
     for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
         cardSpots[k].addEventListener("click", function() {
         let starCounter = document.getElementsByClassName("fa fa-star").length;   // Get the number of stars remaining
@@ -56,8 +58,8 @@ function cardState(state) { // Changes card states
                   console.log(activeCards[0]);  // For testing
                   console.log("CardMatch");  // For testing
                   } else { // No Match
-                      cardState("NoMatch");
-                      //setTimeout(cardState("NoMatch"), 2000); // Stalls card flip during no match condition
+                      //setTimeout((cardState("NoMatch")), 2000);  // Stalls card flip during no match condition
+                      setTimeout(cardState, 2000, "NoMatch");
                       gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in cards
                       activeCards.splice(0, 2);  // Clean out card in activeCards
                       console.log("Cards do not Match"); // For Testing

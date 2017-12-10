@@ -1,30 +1,11 @@
 // Modals for Welcome and GameOver PopUps
 
-// Welcome Modal
+// Welcome Modal //
 const welcomeModal = document.getElementById("welcome_modal");
 
 // When Window Loads displays Welcome Modal
 function welcome() {
     welcomeModal.style.display = "block";
-};
-
-// When the user clicks on close text close the modal
-const span = document.getElementsByClassName("close")[0];
-span.onclick = function() {
-    welcomeModal.style.display = "none";
-};
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target === welcomeModal) {
-        welcomeModal.style.display = "none";
-    }
-};
-
-window.onclick = function(event) {
-    if (event.target === welcomeModal) {
-        welcomeModal.style.display = "none";
-    }
 };
 
 // Player Name array
@@ -37,7 +18,6 @@ function playersName() {
     const displayName = document.getElementById("playersNameHere");
     displayName.innerHTML = `Player: ${playerNameStore}`;
 };
-
 
 // Difficulty Selects (Easy, Medium, Hard)
 let easyDif = 6;
@@ -65,24 +45,24 @@ function gameOver() {
     //displayName.innerHTML = `Congradulations! ${playerNameStore}`;
 };
 
+
 // When the user clicks on close text close the modal
-function close() {
-    const span = document.getElementsByClassName("close")[0];
-    gameOverModal.style.display = "none";
+const span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+  if (event.target === welcomeModal) {welcomeModal.style.display = "none";}
+  if (event.target === gameOverModal) {gameOverModal.style.display = "none";}
+  if (event.target === winnerWinner) {winnerWinnerModal.style.display = "none";}
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target === gameOverModal) {
-        gameOverModal.style.display = "none";
-    }
+    if (event.target === welcomeModal) {welcomeModal.style.display = "none";}
+    if (event.target === gameOverModal) {gameOverModal.style.display = "none";}
+    if (event.target === winnerWinner) {winnerWinnerModal.style.display = "none";}
 };
 
-window.onclick = function(event) {
-    if (event.target === welcomeModal) {
-        welcomeModal.style.display = "none";
-    }
-};
+// winnerWinner() Modal
+const winnerWinnerModal = document.getElementById("winnerWinner_modal");
 
 // winnerWinner() Modal
 function winnerWinner() {
