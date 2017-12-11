@@ -15,7 +15,6 @@ function runGame() {
     shuffle(cards);
     dealCards(cards); // Takes in gameDeck array
     difficultyLevel(mediumDif);
-    countStars();
     gameLoop();
 };
 
@@ -27,7 +26,8 @@ const cardSpots = document.querySelectorAll("li");
 function cardState(state) { // Changes card states
     for (let card of activeCards) {
         if (state === "match") { card.className = "card match";}
-        if (state === "NoMatch") { card.className = "card";}
+        if (state === "NoMatch") {setTimeout(function(){ card.className = "card" }, 2000);}                 // {card.className = "card"};
+
     }
 };
 
@@ -38,10 +38,7 @@ function cardState(state) { // Changes card states
             let playCard = cardSpots[k].firstChild.className; // takes card name 'i' from 'li' element
             activeCards.push(cardSpots[k]);
             gameDeck.pop(cardSpots[k]); // Removes the active card from the gameDeck array
-            console.log(playCard);
-            console.log(activeCards);
-            console.log("activeCards");
-            // userClicks
+            clickCount(1);
             if (activeCards.length === 2) {  // Check to see if there are two cards to compare in activeCards
                   console.log("activeCards[0]");
                   console.log(activeCards[0].firstChild.className);
@@ -50,7 +47,6 @@ function cardState(state) { // Changes card states
                       matchedCards.push(activeCards.slice());  // Take both cards in their open state and place into matched cards pile
                       activeCards.splice(0, 2);  // Clean out card in activeCards
                       console.log(activeCards.length); // For Testing
-                      // className = cardsMatch
                       if (gameDeck.length = 0) {
                           // winnerWinner();
                           console.log("winnerWinner");  // For Testing
@@ -59,17 +55,18 @@ function cardState(state) { // Changes card states
                   console.log("CardMatch");  // For testing
                   } else { // No Match
                       //setTimeout((cardState("NoMatch")), 2000);  // Stalls card flip during no match condition
-                      setTimeout(cardState, 2000, "NoMatch");
+                      cardState("NoMatch");
+                      //setTimeout(cardState, 2000, "NoMatch");
                       gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in cards
                       activeCards.splice(0, 2);  // Clean out card in activeCards
                       console.log("Cards do not Match"); // For Testing
-                      console.log(activeCards.length); // For Testing
                       if (starCounter > 1) {  //If there are stars (moves) remaining do... When there are not gameOver
                           const stars = document.getElementById("stars"); // REMOVE STAR
                           stars.removeChild(stars.firstChild);
                           console.log(starCounter);
 
                       } else {
+                          stars.removeChild(stars.firstChild);
                           return gameOver();
                           console.log("gameOver");  // For Testing
                       }
@@ -78,19 +75,6 @@ function cardState(state) { // Changes card states
         } // starCounter
     });  // user interaction
   } // Loop
-};
-
-
-
-
-
-
-// Tracks the total number of clicks as well as how many are made for a match set
-function userClicks() {
-  let userClicks = gameUserFuncs.clicks; //
-  const clicks = document.getElementById("user-clicks");
-  clicks.innerHTML = `${userClicks}`; // Updates moves remaining
-  return gameUserFuncs.clicks += 1;
 };
 
  /*
@@ -114,19 +98,11 @@ function dealCards() {  // Grabs DOM element ul and creates li class "cards"
 };
 
 /*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-/*
-GAME components
-*/
+// GAME components
+
 // Loads page and game components
 function loadGame() {
     welcome(); // Launches Welcome Modal
@@ -172,13 +148,11 @@ function shuffle(array) {
     return array;
 };
 
-
-// Stars & Moves.  Removes a star and updates # of stars Remaining
-function countStars() {
-    let starCount = document.getElementsByClassName("fa fa-star").length; // Counts star elements
-    const movesCount = document.getElementById("moves-count");
-    movesCount.innerHTML = `${starCount}`; // Updates moves remaining
-    return starCount;
+// Tracks the total number of clicks as well as how many are made for a match set
+function clickCount(clicks) {
+    let userClicks = clicks +1;
+    const movesCount = document.getElementById("moves-count");  // Grab moves-count
+    movesCount.innerHTML = `Clicks: ${userClicks}`; // Updates moves remaining
 };
 
 // Removes all stars
