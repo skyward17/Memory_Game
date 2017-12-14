@@ -1,3 +1,14 @@
+/*
+Bugs/Fixes/Ideas:
+User clicks don't add when clicking through
+'Close' on winnerWinner and gameOver don't work
+After last card is played needs to be a delay before gameOver modal popups
+gameOver Modal 'Play Again' needs to clear the Modal
+function userClicks
+clear userClicks
+Add another span in html 
+
+*/
 
 
 // Runs when page Loads
@@ -386,17 +397,16 @@ if (gameDeck.length = 0) {
 
 
 /////////////////////////////////////////////////////
+let activeCards = ["fa fa-diamond", "fa fa-paper-plane-o"];
 function cardState(state) {
-    let cardState = state;
-
     for (let card of activeCards) {
         if (state === "match") {
             card.className = "card match";
-            console.log()
+            console.log("match");
         } else {
             card.className = "card";
         }
     }
-}
+};
 
 cardState("match");

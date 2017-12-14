@@ -1,9 +1,7 @@
 // Modals for Welcome and GameOver PopUps
 
-// Welcome Modal //
+// Welcome Modal: When Window Loads displays Welcome Modal//
 const welcomeModal = document.getElementById("welcome_modal");
-
-// When Window Loads displays Welcome Modal
 function welcome() {
     welcomeModal.style.display = "block";
 };
@@ -31,28 +29,26 @@ function difficultyLevel(level) {
         stars.appendChild(listItem); // Add li to stars ID
         listItem.setAttribute("class", "fa fa-star"); // Add Class "fa fa-star" to each li
     }
-    countStars();
+    //countStars();
 };
 
 
-// GameOver() Modal
+// GameOver() Modal  When user no longer has moves
 const gameOverModal = document.getElementById("gameOver_modal");
-
-// When user no longer has moves
 function gameOver() {
     gameOverModal.style.display = "block";
     const displayName = document.getElementById("playersNameHere");
-    //displayName.innerHTML = `Congradulations! ${playerNameStore}`;
+    //displayName.innerHTML = `Congratulations! ${playerNameStore}`;
 };
 
-
-// When the user clicks on close text close the modal
+// When the user clicks on close text, close the modal
 const span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
-  if (event.target === welcomeModal) {welcomeModal.style.display = "none";}
-  if (event.target === gameOverModal) {gameOverModal.style.display = "none";}
-  if (event.target === winnerWinner) {winnerWinnerModal.style.display = "none";}
+      if (welcomeModal) {welcomeModal.style.display = "none";}
+      if (gameOverModal) {gameOverModal.style.display = "none";}
+      //if (winnerWinner) {winnerWinnerModal.style.display = "none";}
 };
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -63,12 +59,7 @@ window.onclick = function(event) {
 
 // winnerWinner() Modal
 const winnerWinnerModal = document.getElementById("winnerWinner_modal");
-
-// winnerWinner() Modal
 function winnerWinner() {
     const displayName = document.getElementById("playersNameHere");
     displayName.innerHTML = `Congradulations! ${playerNameStore}`;
 };
-
-
-// Play Again?  Same as reset()

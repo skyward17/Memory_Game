@@ -9,12 +9,10 @@ let activeCards = [];
 let matchedCards = [];
 
  // Runs when page Loads
- // Default difficultyLevel to medium
-      // RUNGAME LOOP BUILD
 function runGame() {
     shuffle(cards);
     dealCards(cards); // Takes in gameDeck array
-    difficultyLevel(mediumDif);
+    difficultyLevel(mediumDif);   // Default difficultyLevel to medium
     gameLoop();
 };
 
@@ -26,19 +24,22 @@ const cardSpots = document.querySelectorAll("li");
 function cardState(state) { // Changes card states
     for (let card of activeCards) {
         if (state === "match") { card.className = "card match";}
-        if (state === "NoMatch") {setTimeout(function(){ card.className = "card" }, 2000);}                 // {card.className = "card"};
+        if (state === "NoMatch") {setTimeout(function(){ card.className = "card" }, 1200);} // Change card state back to card using delay in execution
 
     }
 };
-
+let userClicks = 0;
     for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
         cardSpots[k].addEventListener("click", function() {
+          userClicks += 1;
+          //clickCount(userClicks);
+          const movesCount = document.getElementById("moves-count");  // Grab moves-count
+          movesCount.innerHTML = `Clicks: ${userClicks}`; // Updates clicks made by user
         let starCounter = document.getElementsByClassName("fa fa-star").length;   // Get the number of stars remaining
             cardSpots[k].className = "card open show";  // Flip card to show card
             let playCard = cardSpots[k].firstChild.className; // takes card name 'i' from 'li' element
             activeCards.push(cardSpots[k]);
             gameDeck.pop(cardSpots[k]); // Removes the active card from the gameDeck array
-            clickCount(1);
             if (activeCards.length === 2) {  // Check to see if there are two cards to compare in activeCards
                   console.log("activeCards[0]");
                   console.log(activeCards[0].firstChild.className);
@@ -54,9 +55,7 @@ function cardState(state) { // Changes card states
                   console.log(activeCards[0]);  // For testing
                   console.log("CardMatch");  // For testing
                   } else { // No Match
-                      //setTimeout((cardState("NoMatch")), 2000);  // Stalls card flip during no match condition
-                      cardState("NoMatch");
-                      //setTimeout(cardState, 2000, "NoMatch");
+                      cardState("NoMatch"); // Change card state back to card using delay in execution
                       gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in cards
                       activeCards.splice(0, 2);  // Clean out card in activeCards
                       console.log("Cards do not Match"); // For Testing
@@ -113,8 +112,9 @@ function loadGame() {
 function reset() {
     welcome();
     clearDeck();  // Clears gameDeck
-    clearCardDecks();  //Clears gameDeck, activeCards and matchedCards
+    clearCardDecks();  // Clears gameDeck, activeCards and matchedCards
     runGame();
+    // Clear userClicks
 
 };
 
@@ -149,10 +149,10 @@ function shuffle(array) {
 };
 
 // Tracks the total number of clicks as well as how many are made for a match set
-function clickCount(clicks) {
-    let userClicks = clicks +1;
+function clickCount(userClicks) {
+    userClicks += 1;
     const movesCount = document.getElementById("moves-count");  // Grab moves-count
-    movesCount.innerHTML = `Clicks: ${userClicks}`; // Updates moves remaining
+    movesCount.innerHTML = `Clicks: ${userClicks}`; // Updates clicks made by user
 };
 
 // Removes all stars
