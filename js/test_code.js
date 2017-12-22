@@ -411,3 +411,24 @@ function cardState(state) {
 };
 
 cardState("match");
+
+
+
+<!-- Original
+
+        <section class="score-panel">
+          <span class="display-name" id="playersNameHere"></span>
+        </section>
+
+
+        <section class="score-panel">
+          <ul class="stars" id="stars">
+          </ul>
+
+          <span class="moves" id="moves-count"></span>
+
+            <div class="restart">
+            <i class="fa fa-repeat" onclick="reset()"></i>
+          </div>
+        </section>
+-->
