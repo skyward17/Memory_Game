@@ -2,13 +2,13 @@
 Bugs/Fixes/Ideas:
 'Close' on winnerWinner and gameOver don't work
 After last card is played needs to be a delay before gameOver modal popups
-gameOver Modal 'Play Again' needs to clear the Modal
 function userClicks
 clear userClicks
-Add another span in html
 Add AddStar
-Span then section?
-
+GameOver Modal. Retry closes Modal  Same with winnerWinner
+GameOver Modal. Exit closes Tab/window   Same with winnerWinner
+Change Close in Welcome to Ready
+WelcomeModal Swap Player Name area and Difficuly ?
 */
 
 

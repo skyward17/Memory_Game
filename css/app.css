@@ -33,6 +33,11 @@ h1  {
     font-weight: 300;
 }
 
+ol {
+    padding-left:2;
+    list-style-position:outside;
+    text-align: left;
+}
 /*
  * Styles for the deck of cards
  */

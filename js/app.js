@@ -100,6 +100,12 @@ function reset() {
 
 };
 
+// Resets game and closes modal
+function restart() {
+    reset();
+    gameOverModal.style.display = "none";
+};
+
 // Clears the Deck
 function clearDeck() {
     const clearCards = document.getElementById("buildDeck");  // Parent Node
