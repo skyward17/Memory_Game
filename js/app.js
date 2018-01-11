@@ -32,6 +32,7 @@ function gameLoop() {
     let userClicks = 0;
     for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
         cardSpots[k].addEventListener("click", function() {
+          timer("start");
           userClicks += 1;
           const clicksCount = document.getElementById("click-count");  // Grab click-count
           clicksCount.innerHTML = `Clicks: ${userClicks}`; // Updates clicks made by user
@@ -149,5 +150,24 @@ function clearStars() {
     const stars = document.getElementById("stars");
     while (stars.firstChild) {
             stars.removeChild(stars.firstChild);
+    }
+};
+
+// Timer
+function timer(status) {
+    if (status === "start") {
+        var end, start;
+        start = new Date();
+            for (var i = 0; i < 1000; i++) {
+                Math.sqrt(i);
+            }
+            end = new Date();
+// Output the result in an element with id="demo"
+    //document.getElementById("timer").innerHTML = "Timer: " + minutes + "m " + seconds + "s ";
+
+    console.log('Operation took ' + (end.getTime() - start.getTime()) + ' msec'); // For testing
+    }
+    if (status === "stop") {
+        console.log('Operation took ' + (end.getTime() - start.getTime()) + ' msec'); // For testing
     }
 };

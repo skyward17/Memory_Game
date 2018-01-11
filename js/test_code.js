@@ -4,11 +4,11 @@ Bugs/Fixes/Ideas:
 After last card is played needs to be a delay before gameOver modal popups
 function userClicks
 clear userClicks
-Add AddStar
+Add AddStar for star rescue?
 GameOver Modal. Retry closes Modal  Same with winnerWinner
 GameOver Modal. Exit closes Tab/window   Same with winnerWinner
-Change Close in Welcome to Ready
 WelcomeModal Swap Player Name area and Difficuly ?
+Add Stars to Difficulties
 */
 
 
@@ -432,3 +432,90 @@ cardState("match");
           </div>
         </section>
 -->
+// Timer V1
+function timer(status) {
+    if (status === "start") {
+        var end, start;
+        start = new Date();
+            for (var i = 0; i < 1000; i++) {
+                Math.sqrt(i);
+            }
+            end = new Date();
+// Output the result in an element with id="demo"
+    //document.getElementById("timer").innerHTML = "Timer: " + minutes + "m " + seconds + "s ";
+
+    console.log('Operation took ' + (end.getTime() - start.getTime()) + ' msec'); // For testing
+    }
+    if (status === "stop") {
+        console.log('Operation took ' + (end.getTime() - start.getTime()) + ' msec'); // For testing
+    }
+};
+
+
+// Timer V2
+function timer(status) {
+    var end, start;
+
+    if (status === "start") {
+        start = new Date();
+            for (var i = 0; i < 1000; i++) {
+                Math.sqrt(i);
+            }
+
+// Output the result in an element with id="demo"
+    document.getElementById("timer").innerHTML = "Timer: " + (start.getTime()) + ' msec');
+
+    console.log('Operation took ' + (start.getTime()) + ' msec'); // For testing
+    }
+    if (status === "stop") {
+        end = new Date();
+        console.log('Operation took ' + (end.getTime() - start.getTime()) + ' msec'); // For testing
+    }
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+}
+</style>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = 0;
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now an the count down date
+    var distance = countDownDate + now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+
+    // If the count down is over, write some text
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+
+</body>
+</html>
+//
