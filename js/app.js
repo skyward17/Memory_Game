@@ -32,7 +32,6 @@ function gameLoop() {
     let userClicks = 0;
     for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
         cardSpots[k].addEventListener("click", function() {
-          timer("start");
           userClicks += 1;
           const clicksCount = document.getElementById("click-count");  // Grab click-count
           clicksCount.innerHTML = `Clicks: ${userClicks}`; // Updates clicks made by user
@@ -47,7 +46,8 @@ function gameLoop() {
                       matchedCards.push(activeCards.slice());  // Take both cards in their open state and place into matched cards pile
                       activeCards.splice(0, 2);  // Clean out card in activeCards
                       if (gameDeck.length = 0) {
-                          // winnerWinner();
+                          stopTimer(); // Stop Timer
+                          return winnerWinner();
                           console.log("winnerWinner");  // For Testing
                       }
                   } else { // No Match
@@ -59,6 +59,7 @@ function gameLoop() {
                           stars.removeChild(stars.firstChild);
                       } else {
                           stars.removeChild(stars.firstChild);
+                          stopTimer(); // Stop Timer
                           return gameOver();
                       }
                   } // No Match
@@ -69,10 +70,9 @@ function gameLoop() {
 
 // GAME components runGame() function parts
  // Global variables
- let grabDeck = document.getElementsByClassName("deck"); // Grabs the deck ul
- let grabLi = document.querySelectorAll("li");
- // Place all cards in DOM
- // Idea: condense down to something like const listItem = document.createElement("li").setAttribute("class", "card");
+let grabDeck = document.getElementsByClassName("deck"); // Grabs the deck ul
+let grabLi = document.querySelectorAll("li");
+// Place all cards in DOM
 function dealCards() {  // Grabs DOM element ul and creates li class "cards"
     for (let i = 0; i < cards.length; i++) {
         const cardSlots = document.createElement("li");
@@ -97,8 +97,7 @@ function reset() {
     clearDeck();  // Clears gameDeck
     clearCardDecks();  // Clears gameDeck, activeCards and matchedCards
     runGame();
-    // Clear userClicks
-
+    resetTimer();
 };
 
 // Resets game and closes modal
@@ -150,24 +149,5 @@ function clearStars() {
     const stars = document.getElementById("stars");
     while (stars.firstChild) {
             stars.removeChild(stars.firstChild);
-    }
-};
-
-// Timer
-function timer(status) {
-    if (status === "start") {
-        var end, start;
-        start = new Date();
-            for (var i = 0; i < 1000; i++) {
-                Math.sqrt(i);
-            }
-            end = new Date();
-// Output the result in an element with id="demo"
-    //document.getElementById("timer").innerHTML = "Timer: " + minutes + "m " + seconds + "s ";
-
-    console.log('Operation took ' + (end.getTime() - start.getTime()) + ' msec'); // For testing
-    }
-    if (status === "stop") {
-        console.log('Operation took ' + (end.getTime() - start.getTime()) + ' msec'); // For testing
     }
 };

@@ -4,11 +4,10 @@ Bugs/Fixes/Ideas:
 After last card is played needs to be a delay before gameOver modal popups
 function userClicks
 clear userClicks
-Add AddStar for star rescue?
 GameOver Modal. Retry closes Modal  Same with winnerWinner
 GameOver Modal. Exit closes Tab/window   Same with winnerWinner
 WelcomeModal Swap Player Name area and Difficuly ?
-Add Stars to Difficulties
+Watch does not reset
 */
 
 
@@ -519,3 +518,25 @@ var x = setInterval(function() {
 </body>
 </html>
 //
+
+
+// Timer
+function minsSecs() {
+    let s = 0;
+    let min = floor(s / 60);
+    let sec = s % 60;
+    return min + ':' + sec;
+
+};
+
+let counter = 0;
+
+let  timer = document.getElementById("timer");
+
+function timeCounter() {
+    counter++;
+    timer.innerHTML =`Timer: ${counter}`;
+};
+
+
+setInterval(timeCounter, 1000);

@@ -45,8 +45,7 @@ function gameOver() {
 const span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
       if (welcomeModal) {welcomeModal.style.display = "none";}
-      if (gameOverModal) {gameOverModal.style.display = "none";}
-      //if (winnerWinner) {winnerWinnerModal.style.display = "none";}
+      startTimer();  // Starts timer
 };
 
 
