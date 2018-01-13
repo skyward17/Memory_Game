@@ -9,14 +9,14 @@ function Stopwatch(element) {
     // What interval will run continually every 10ms
     function update() {
         if (this.isOn) {  // If not, used for resetting time back to 00:00.000
-            time += delta();  // Whatever time is passed in delta() will be added to time
+            time += trackTime();  // Whatever time is passed in trackTime() will be added to time
         }
         let formattedTime = timeFormatter(time);  // Passes in formateed time
         element.textContent = formattedTime;
     };
 
     // Calculates how much time has passed
-    function delta() {
+    function trackTime() {
         const now = Date.now();  // Calculates current time
         const timePassed = now - offset;  // Current time - how much time has passed
         offset = now;  // each time function is run will calculate the time passed already
@@ -28,7 +28,6 @@ function Stopwatch(element) {
         const time = new Date(timeInMillSec);  //  *does not effect time in Local Variables. Different
         let minutes = time.getMinutes().toString();
         let seconds = time.getSeconds().toString();
-        let milliseconds = time.getMilliseconds().toString();
 
         if (minutes.length < 2) {  // Length less than 2 digits add a 0 to the front for formatting
             minutes = '0' + minutes;
@@ -38,15 +37,11 @@ function Stopwatch(element) {
             seconds = '0' + seconds;
         }
 
-        while (milliseconds.length < 3) {  // Length less than 2 digits add a 0 to the front for formatting
-            milliseconds = '0' + milliseconds;
-        }
-        //return minutes + ' : ' + seconds + ' . ' + milliseconds;
         return minutes + ' : ' + seconds;
     };
 
 // Public Functions
-    this.isON = false;
+    this.isON = false; // Start with timer off
 
     this.start = function() {
         if(!this.isOn) {  // If this is not on (true) run this
@@ -84,7 +79,10 @@ function stopTimer() {
 };
 
 function resetTimer() {
-    (watch.isOn) ? stopTimer() : watch.reset();  // Tenery if on Stop if not reset
+    if (watch.isOn) {  // If timer is running for some reason stop it, the reset
+        watch.stop();
+    }
+    watch.reset();
 };
 
 

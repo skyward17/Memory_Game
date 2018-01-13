@@ -11,8 +11,6 @@ let plrEntrName = document.getElementById("playerName");
 // Players name entered from Welcome Modal
 function playersName() {
     const playerNameStore = [plrEntrName.value];
-    console.log(playerNameStore); // For testing
-    // Add players name to game
     const displayName = document.getElementById("playersNameHere");
     displayName.innerHTML = `Player: ${playerNameStore}`;
 };
@@ -29,16 +27,14 @@ function difficultyLevel(level) {
         stars.appendChild(listItem); // Add li to stars ID
         listItem.setAttribute("class", "fa fa-star"); // Add Class "fa fa-star" to each li
     }
-    //countStars();
 };
 
-
-// GameOver() Modal  When user no longer has moves
+// GameOver() Modal  When player no longer has moves
 const gameOverModal = document.getElementById("gameOver_modal");
 function gameOver() {
     gameOverModal.style.display = "block";
-    const displayName = document.getElementById("playersNameHere");
-    //displayName.innerHTML = `Congratulations! ${playerNameStore}`;
+    const movesCount = document.getElementById("click-count");  // Grab moves-count
+    movesCount.innerHTML = clickCount();
 };
 
 // When the user clicks on close text, close the modal
@@ -47,7 +43,6 @@ span.onclick = function() {
       if (welcomeModal) {welcomeModal.style.display = "none";}
       startTimer();  // Starts timer
 };
-
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {

@@ -1,4 +1,4 @@
-//Arrays for the cards
+// Arrays for the cards
 
 let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
@@ -8,12 +8,14 @@ let activeCards = [];
 
 let matchedCards = [];
 
- // Runs when page Loads
+// Global variables
+let userClicks = 0;
+
+// Runs when page Loads
 function runGame() {
     shuffle(cards);
     dealCards(cards); // Takes in gameDeck array
     difficultyLevel(mediumDif);   // Default difficultyLevel to medium
-    clickCount(0);
     gameLoop();
 };
 
@@ -26,15 +28,12 @@ function gameLoop() {
         for (let card of activeCards) {
             if (state === "match") { card.className = "card match";}
             if (state === "NoMatch") {setTimeout(function(){ card.className = "card" }, 1200);} // Change card state back to card using delay in execution
-
          }
      };
     let userClicks = 0;
     for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
         cardSpots[k].addEventListener("click", function() {
-          userClicks += 1;
-          const clicksCount = document.getElementById("click-count");  // Grab click-count
-          clicksCount.innerHTML = `Clicks: ${userClicks}`; // Updates clicks made by user
+        countClicks();  // Counts clicks on each li element
         let starCounter = document.getElementsByClassName("fa fa-star").length;   // Get the number of stars remaining
             cardSpots[k].className = "card open show";  // Flip card to show card
             let playCard = cardSpots[k].firstChild.className; // takes card name 'i' from 'li' element
@@ -136,11 +135,12 @@ function shuffle(array) {
     return array;
 };
 
-// Tracks the total number of clicks as well as how many are made for a match set
-function clickCount(userClicks) {
-    //userClicks += 1;
-    const movesCount = document.getElementById("click-count");  // Grab moves-count
-    movesCount.innerHTML = `Clicks: ${userClicks}`; // Updates clicks made by user
+// User Clicks
+function countClicks() {
+    userClicks += 1;
+    //userClicks;
+    const clicksCount = document.getElementById("click-count");  // Grab click-count
+    clicksCount.innerHTML = `Clicks: ${userClicks}`; // Updates clicks made by user
 };
 
 // Removes all stars

@@ -36,3 +36,6 @@ Bug List:
   Modal:
   -User Clicks off modal does not close modal winnerWinner & gameOver.  Maybe make close(modals) rather than close()
   -User Name spacing in <span>
+
+
+stopwatch functionality credit: Saad  https://www.youtube.com/channel/UCy8-vp4NblZvyBpU6sqA3ow

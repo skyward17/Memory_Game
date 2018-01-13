@@ -2,12 +2,13 @@
 Bugs/Fixes/Ideas:
 'Close' on winnerWinner and gameOver don't work
 After last card is played needs to be a delay before gameOver modal popups
-function userClicks
-clear userClicks
 GameOver Modal. Retry closes Modal  Same with winnerWinner
 GameOver Modal. Exit closes Tab/window   Same with winnerWinner
 WelcomeModal Swap Player Name area and Difficuly ?
-Watch does not reset
+Add stars remaining to winnerWinner
+Add timer to winnerWinner
+Add timer to gameOver
+Refactor if (gameDeck.length = 0) {  move so when last card matches winnerWinner displays
 */
 
 
