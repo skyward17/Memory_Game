@@ -86,4 +86,4 @@ function resetTimer() {
 };
 
 
-// Credit Saad  https://www.youtube.com/channel/UCy8-vp4NblZvyBpU6sqA3ow
+// Credit: Saad  https://www.youtube.com/channel/UCy8-vp4NblZvyBpU6sqA3ow

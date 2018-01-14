@@ -4,11 +4,12 @@ Bugs/Fixes/Ideas:
 After last card is played needs to be a delay before gameOver modal popups
 GameOver Modal. Retry closes Modal  Same with winnerWinner
 GameOver Modal. Exit closes Tab/window   Same with winnerWinner
-WelcomeModal Swap Player Name area and Difficuly ?
 Add stars remaining to winnerWinner
 Add timer to winnerWinner
 Add timer to gameOver
 Refactor if (gameDeck.length = 0) {  move so when last card matches winnerWinner displays
+userClicks
+Pause between matches or no match sets
 */
 
 

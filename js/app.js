@@ -30,7 +30,6 @@ function gameLoop() {
             if (state === "NoMatch") {setTimeout(function(){ card.className = "card" }, 1200);} // Change card state back to card using delay in execution
          }
      };
-    let userClicks = 0;
     for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
         cardSpots[k].addEventListener("click", function() {
         countClicks();  // Counts clicks on each li element
@@ -97,6 +96,7 @@ function reset() {
     clearCardDecks();  // Clears gameDeck, activeCards and matchedCards
     runGame();
     resetTimer();
+    clearClicks();
 };
 
 // Resets game and closes modal
@@ -138,7 +138,13 @@ function shuffle(array) {
 // User Clicks
 function countClicks() {
     userClicks += 1;
-    //userClicks;
+    const clicksCount = document.getElementById("click-count");  // Grab click-count
+    clicksCount.innerHTML = `Clicks: ${userClicks}`; // Updates clicks made by user
+};
+
+// clear Clicks
+function clearClicks() {
+    userClicks = 0;
     const clicksCount = document.getElementById("click-count");  // Grab click-count
     clicksCount.innerHTML = `Clicks: ${userClicks}`; // Updates clicks made by user
 };

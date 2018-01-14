@@ -33,8 +33,8 @@ function difficultyLevel(level) {
 const gameOverModal = document.getElementById("gameOver_modal");
 function gameOver() {
     gameOverModal.style.display = "block";
-    const movesCount = document.getElementById("click-count");  // Grab moves-count
-    movesCount.innerHTML = clickCount();
+    const clicksCount = document.getElementById("click-count");  // Grab click-count
+    clicksCount.innerHTML = `Clicks: ${userClicks}`; // Updates clicks made by user
 };
 
 // When the user clicks on close text, close the modal
