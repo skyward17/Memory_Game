@@ -26,8 +26,9 @@ function gameLoop() {
 
     function cardState(state) { // Changes card states
         for (let card of activeCards) {
-            if (state === "match") { card.className = "card match";}
+            if (state === "match") { card.className = "card match";}  // Locks in cards
             if (state === "NoMatch") {setTimeout(function(){ card.className = "card" }, 1200);} // Change card state back to card using delay in execution
+            if (state === "disable") {setInterval(function(){ card.className = "disable" }, 10000);}
          }
      };
     for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
@@ -38,20 +39,22 @@ function gameLoop() {
             let playCard = cardSpots[k].firstChild.className; // takes card name 'i' from 'li' element
             activeCards.push(cardSpots[k]);
             gameDeck.pop(cardSpots[k]); // Removes the active card from the gameDeck array
+            if (gameDeck.length = 0) {
+                stopTimer(); // Stop Timer
+                return winnerWinner();
+                console.log("winnerWinner");  // For Testing
+            }
             if (activeCards.length === 2) {  // Check to see if there are two cards to compare in activeCards
                   if (activeCards[0].firstChild.className === activeCards[1].firstChild.className) { // Compare both cards in activeCards
                       cardState("match");
                       matchedCards.push(activeCards.slice());  // Take both cards in their open state and place into matched cards pile
                       activeCards.splice(0, 2);  // Clean out card in activeCards
-                      if (gameDeck.length = 0) {
-                          stopTimer(); // Stop Timer
-                          return winnerWinner();
-                          console.log("winnerWinner");  // For Testing
-                      }
+
                   } else { // No Match
                       cardState("NoMatch"); // Change card state back to card using delay in execution
                       gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in cards
                       activeCards.splice(0, 2);  // Clean out card in activeCards
+                      cardState("disable");
                       if (starCounter > 1) {  //If there are stars (moves) remaining do... When there are not gameOver
                           const stars = document.getElementById("stars"); // REMOVE STAR
                           stars.removeChild(stars.firstChild);
@@ -131,7 +134,6 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 };
 
@@ -154,6 +156,6 @@ function clearStars() {
     let starCount = document.getElementsByClassName("fa fa-star").length; // Counts star elements
     const stars = document.getElementById("stars");
     while (stars.firstChild) {
-            stars.removeChild(stars.firstChild);
+        stars.removeChild(stars.firstChild);
     }
 };

@@ -33,7 +33,8 @@ function difficultyLevel(level) {
 const gameOverModal = document.getElementById("gameOver_modal");
 function gameOver() {
     gameOverModal.style.display = "block";
-    const clicksCount = document.getElementById("click-count");  // Grab click-count
+    //const clicksCount = document.getElementById("click-count");  // Grab click-count
+    document.getElementById("click-count").text(userClicks);
     clicksCount.innerHTML = `Clicks: ${userClicks}`; // Updates clicks made by user
 };
 
