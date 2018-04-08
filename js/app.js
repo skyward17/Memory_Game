@@ -1,5 +1,4 @@
 // Arrays for the cards
-
 let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
 let gameDeck = cards.slice();
@@ -39,17 +38,17 @@ function gameLoop() {
             let playCard = cardSpots[k].firstChild.className; // takes card name 'i' from 'li' element
             activeCards.push(cardSpots[k]);
             gameDeck.pop(cardSpots[k]); // Removes the active card from the gameDeck array
-            if (gameDeck.length = 0) {
+            /*if (gameDeck.length = 0) {
                 stopTimer(); // Stop Timer
-                return winnerWinner();
-                console.log("winnerWinner");  // For Testing
+                return gameOver();
+                console.log("Test Winner!");  // For testing
             }
+            */
             if (activeCards.length === 2) {  // Check to see if there are two cards to compare in activeCards
                   if (activeCards[0].firstChild.className === activeCards[1].firstChild.className) { // Compare both cards in activeCards
                       cardState("match");
                       matchedCards.push(activeCards.slice());  // Take both cards in their open state and place into matched cards pile
                       activeCards.splice(0, 2);  // Clean out card in activeCards
-
                   } else { // No Match
                       cardState("NoMatch"); // Change card state back to card using delay in execution
                       gameDeck.push(activeCards.slice()); // Take the 2 cards in activeCards and place in cards
@@ -64,10 +63,14 @@ function gameLoop() {
                           return gameOver();
                       }
                   } // No Match
+                  if (gameDeck.length <= 1) {  //  If no cards remain in gameDeck meaning all cards are matched
+                      stopTimer(); // Stop Timer
+                      return gameOver();
+                  }  //  if gameDeck.length <=1
         } // starCounter
     });  // user interaction
-  } // Loop
-};
+  }  // Loop
+};  // gameLoop()
 
 // GAME components runGame() function parts
  // Global variables

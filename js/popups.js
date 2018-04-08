@@ -29,16 +29,20 @@ function difficultyLevel(level) {
     }
 };
 
-// GameOver() Modal  When player no longer has moves
+// gameOver() Modal  When player no longer has moves remaining
 const gameOverModal = document.getElementById("gameOver_modal");
 function gameOver() {
-    gameOverModal.style.display = "block";
-    //const clicksCount = document.getElementById("click-count");  // Grab click-count
-    document.getElementById("click-count").text(userClicks);
-    clicksCount.innerHTML = `Clicks: ${userClicks}`; // Updates clicks made by user
+  gameOverModal.style.display = "block";
+  if (gameDeck.length <= 1) {
+      document.getElementById("gameFinalStatus").innerHTML = "YOU WON!";  //  Add "" to DOM for winner condition
+      console.log("TEST WINNER DOM");
+  }
+  document.getElementById("userNameDisp").innerHTML = "Thank you for playing! " + [plrEntrName.value];
+  document.getElementById("click-score").innerHTML = document.getElementById("click-count").innerHTML;
+  document.getElementById("timer-score").innerHTML = "Timer: "  + document.getElementById("timer").innerHTML; // Updates clicks made by user
 };
 
-// When the user clicks on close text, close the modal
+// When the user clicks on "close" text, close the modal
 const span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
       if (welcomeModal) {welcomeModal.style.display = "none";}
@@ -49,12 +53,4 @@ span.onclick = function() {
 window.onclick = function(event) {
     if (event.target === welcomeModal) {welcomeModal.style.display = "none";}
     if (event.target === gameOverModal) {gameOverModal.style.display = "none";}
-    if (event.target === winnerWinner) {winnerWinnerModal.style.display = "none";}
-};
-
-// winnerWinner() Modal
-const winnerWinnerModal = document.getElementById("winnerWinner_modal");
-function winnerWinner() {
-    const displayName = document.getElementById("playersNameHere");
-    displayName.innerHTML = `Congradulations! ${playerNameStore}`;
 };
