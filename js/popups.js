@@ -1,6 +1,6 @@
-// Modals for Welcome and GameOver PopUps
+// Modals for Welcome and GameOver PopUps  //
 
-// Welcome Modal: When Window Loads displays Welcome Modal//
+// Welcome Modal: When Window Loads displays Welcome Modal
 const welcomeModal = document.getElementById("welcome_modal");
 function welcome() {
     welcomeModal.style.display = "block";
@@ -32,14 +32,14 @@ function difficultyLevel(level) {
 // gameOver() Modal  When player no longer has moves remaining
 const gameOverModal = document.getElementById("gameOver_modal");
 function gameOver() {
-  gameOverModal.style.display = "block";
-  if (gameDeck.length <= 1) {
-      document.getElementById("gameFinalStatus").innerHTML = "YOU WON!";  //  Add "" to DOM for winner condition
-      console.log("TEST WINNER DOM");
-  }
-  document.getElementById("userNameDisp").innerHTML = "Thank you for playing! " + [plrEntrName.value];
-  document.getElementById("click-score").innerHTML = document.getElementById("click-count").innerHTML;
-  document.getElementById("timer-score").innerHTML = "Timer: "  + document.getElementById("timer").innerHTML; // Updates clicks made by user
+    gameOverModal.style.display = "block";
+    if (gameDeck.length <= 1) {
+        document.getElementById("gameFinalStatus").innerHTML = "YOU WON!";  //  Add "" to DOM for winner condition
+        console.log("TEST WINNER DOM");
+    }
+    document.getElementById("userNameDisp").innerHTML = "Thank you for playing! " + [plrEntrName.value];
+    document.getElementById("click-score").innerHTML = document.getElementById("click-count").innerHTML;
+    document.getElementById("timer-score").innerHTML = "Timer: "  + document.getElementById("timer").innerHTML; // Updates clicks made by user
 };
 
 // When the user clicks on "close" text, close the modal

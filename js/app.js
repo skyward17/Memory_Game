@@ -1,3 +1,5 @@
+//  Main code framework for game components, functions and executions // 
+
 // Arrays for the cards
 let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
@@ -72,7 +74,9 @@ function gameLoop() {
   }  // Loop
 };  // gameLoop()
 
-// GAME components runGame() function parts
+
+// GAME components runGame() function parts //
+
  // Global variables
 let grabDeck = document.getElementsByClassName("deck"); // Grabs the deck ul
 let grabLi = document.querySelectorAll("li");
