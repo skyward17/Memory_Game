@@ -1,13 +1,13 @@
-//  Main code framework for game components, functions and executions // 
+//  Main code framework for game components, functions and executions //
 
 // Arrays for the cards
 let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
-let gameDeck = cards.slice();
+let gameDeck = cards.slice();  //  Working deck.  Cards in play between the active pile and matched cards pile.
 
-let activeCards = [];
+let activeCards = [];  //  Cards that are actively selected in play by the user.
 
-let matchedCards = [];
+let matchedCards = [];  //  Cards that have been matched and are taken out of play
 
 // Global variables
 let userClicks = 0;
