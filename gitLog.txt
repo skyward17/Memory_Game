@@ -1,0 +1,73 @@
+Git log --oneline
+
+5d8156b style:  Cleaned up whitespace, spacing and added more section comments
+d540367 refactor:  Changed if (gameDeck.length <= 0) to a value of 1 in gameOver() popups.js
+5ef0901 refactor: Moved if gameDeck.length <= 1 condition for gameOver winner
+ad96d00 test: Added "Test" console.log after gameOver() in if (gameDeck.length = 0) condition app.js for testing
+4c7ef5c refactor: Fixed an issue with the timer name in gameOver() modal
+eeadf6f refactor: Changed text format for "Rules" in Welcome modal
+e1e8095 refactor: Removed "Close" from gameOver() modal
+69f009e feat: Added player's name to gameOver()
+09e2845 refactor: Removed winnerWinner() return from gameLoop() in app.js
+b3be2a0 refactor:  Changed gameOver() to add "click-score" and "timer-score" refactor:  Removed winnerWinner() function
+6f925bc refactor: added Clicks: 0 to gameOver_modal
+5221f70 (origin/master) feat: Created clearClicks()
+470152a feat: Created countClicks() in app.js refactor: Removed userClick code from gameLoop() docs: Added Credit for stopwatch functionality in README
+6625470 feat:  Intergraded stopwatch.js
+c658152 feat: Added Timer code to app.js and indext.html
+aca1b8f refactor: Changed CLOSE to READY in WelcomeModal
+f36bc30 feat: Added restart() to GameOver Modal
+43957ed refactor:  Changed .modal-content width from 80% to 50%;
+712800b refactor: Changed moves-count and 'moves' in index, app.css and app.js to clicks and click-count
+9e34025 refactor: Refactored coding for score panel in html feat: Added css coding for score panel classes
+7eb1eb5 feat: Added userClicks counter
+31ab392 refactor:  Added setTimeout to cardState(state) for no match condition
+de5135d refactor:  Removed user-moves replaced with moves-count from score-panel in html
+cf42d06 refactor: Updated coding to ifs on "close" for modals feat: Added code for winnerWinner Modal
+7b99f60 refactor: Moved if starCounter for gameOver() condition refactor: Removed Version 2 of gameLoop()
+1cfa3d2 refactor: Changed flipCard() to flipCardBack() feat: Added holdCardsOpen() refactor: Added holdCardsOpen() to if cards match refactor: Placed pointer-events: none; into card match CSS
+6ca66a0 refactor: Moved if statements for checking winnerWinner and gameOver conditions refactor: Changed splice in activeCards array to include index and quantity
+d8f9795 refactor: className change to "card" under no match condition in gameLoop() into function cardFlip feat: Added setTimeout() to no match condition
+d6f3e88 feat: Added transition timing to .card and .card .open CSS
+f005266 refactor: Added for in loop for changing card state. refactor: Changed cardSpots from grabbing i element to li
+59edf6a refactor: Continued to refactor gameLoop()
+4ee3d4f refactor: Refactored gameLoop()
+abfb99a feat: Added gameUserFuncs() feat: Added userClicks() test: Tested various runGame() loops/ifs
+8412302 feat: Added gameOver modal refactor: Refactored runLoop()
+4ee166c feat: Created clearCardDecks() refactor: Added clearCardDecks() to reset() feat: Created var gameDeck refactor: Added gameDeck to userInter()
+b560f09 refactor: Added ID to li tags in dealCards() refactor: Refactored click loop for user interaction
+ad759ee feat: Added clearDeck() refactor: Added clearDeck() to reset()
+31ab62d refactor: Removed inner loop from dealCards()
+1d89cf5 refactor: Rebuilt dealCards() loops refactor: Added cards to cards array
+8dcb01d refactor: Placed "li" and class "cards" back into DOM ul
+dd5d5e7 refactor: removed li and classes from cards ul
+bc30e7c refactor: Continued to build/modify runGame() and functions
+2e37137 fix: fixed bug with welcomeModal not closing window.onclick refactor: Moved clearStars() and starCount() to app.js
+1dee6fc feat: Added runGame() refactor: Created loadGame() removing welcome() onload as onload execution
+c29fd91 feat: Began building the cards array
+371d4c1 refactor: Changed clearStars() for loop to while loop
+beac2b5 refactor: Removed window.onload from welcome()
+b383b26 refactor: Refactored difficulty levels to single function
+5b8904f refactor: Removed starCount from index.html to popups.js feat: Created starCount() function from loose starCount code section feat: Created Easy, Medium, Hard functions
+cf67cc2 feat: Built in coding for difficulty section, CSS and Buttons chore: Cleaned up classes and formatting for Modals
+55e67a3 refactor: Removed 2 of 5 Stars added
+06651ea feat: Added code for winnerWinner() Modal
+92e5cef feat: Started code for winnerWinner() Modal
+7b9afca refactor: Moved Stars and Moves code from testing to app.js
+13c167b refactor: Moved Player Name code from app.js to popups.js chore: Commented out Stars and Moves code
+daccf05 refactor: Added two more stars
+cb02376 feat: Added code to remove stars then update number of moves remaining
+9263e39 docs: Added Introduction to Welcome Modal docs: Added Rules to Welcome Modal
+014284e chore: Added bug to bug list-Modal close bug
+aa94381 feat: Added functionality to Welcome Modal Player Name submission
+166933d refactor: Changed Name Form Button from standard to CSS Animated Arrow
+28b3cb4 refactor: Removed Color Select coding refactor: Added Player Name coding
+80034e6 docs: Added Task to List
+cdd0edf refactor: Changed hover color to red #ff0000 on Modals CLOSE
+93d2afa refactor: Corrected issue with Close on Welcome Modal
+f153671 feat: Added GameOver Modal chore: Sorted Modals by function and common code
+ce5a947 refactor: Added onload="welcome()" to body chore: Cleaned up placement for Modal code
+0a5c20d Task Lists Added
+3909ae6 added: pop.css added: test_code.js feat: Added Window and gameOver() modals to html         new file:   css/pop.css         modified:   index.html         modified:   js/popups.js         new file:   js/test_code.js
+d6a73eb Initial Commit
+f5e8e4d first commit
