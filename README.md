@@ -21,21 +21,5 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 # Memory_Game
 
 
-Format List:
-    Modal for Welcome:
-    ->Text size and style
-    ->Layout
-CleanUp List:
-    PEP spacing
-    White Space
-    Comments
-    Spelling
-    Cited Sources
-
-Bug List:
-  Modal:
-  -User Clicks off modal does not close modal winnerWinner & gameOver.  Maybe make close(modals) rather than close()
-  -User Name spacing in <span>
-
-
+******CREDITS
 stopwatch functionality credit: Saad  https://www.youtube.com/channel/UCy8-vp4NblZvyBpU6sqA3ow
