@@ -23,3 +23,5 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ******CREDITS
 stopwatch functionality credit: Saad  https://www.youtube.com/channel/UCy8-vp4NblZvyBpU6sqA3ow
+
+Credit for Animated Arrow button to https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_animate1
