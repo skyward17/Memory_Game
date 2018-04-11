@@ -1,24 +1,35 @@
 # Memory Game Project
 
-## Table of Contents
+## 
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+Table of Contents
+>Introduction
+>Instructions/Rules
+>Coding Notes
+>Credits
+        
 
-## Instructions
+Welcome to Match Game! 
+Match Game is a simple memory game you may rememberfrom when you were younger.  
+The object of Match Game is simple; match each pair of cards until each pair is  matched.
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
 
-To get started, open `js/app.js` and start building out the app's functionality
+Instructions/Rules:
+     1. Click on a card slot to flip it reveling an image.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+     2. Select another slot to flip another card.
 
-## Contributing
+     If the cards match move on to the next slot until all cards are matched and reveld.
+     
+     If you fail to select match cards you lose a star.  Once all 5 stars are gone the game is over.
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
-# Memory_Game
+Formatting notes:
+     >Indentations:
+     >JS files 4 spaces
+     >CSS  4 spaces
+     >HTML 2 spaces
+
 
 
 ******CREDITS
