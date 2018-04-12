@@ -34,18 +34,13 @@ function gameLoop() {
      };
     for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
         cardSpots[k].addEventListener("click", function() {
-        countClicks();  // Counts clicks on each li element
+        //countClicks();  // Counts clicks on each li element
         let starCounter = document.getElementsByClassName("fa fa-star").length;   // Get the number of stars remaining
             cardSpots[k].className = "card open show";  // Flip card to show card
+            countClicks();  // Counts clicks on each li element
             let playCard = cardSpots[k].firstChild.className; // takes card name 'i' from 'li' element
             activeCards.push(cardSpots[k]);
             gameDeck.pop(cardSpots[k]); // Removes the active card from the gameDeck array
-            /*if (gameDeck.length = 0) {
-                stopTimer(); // Stop Timer
-                return gameOver();
-                console.log("Test Winner!");  // For testing
-            }
-            */
             if (activeCards.length === 2) {  // Check to see if there are two cards to compare in activeCards
                   if (activeCards[0].firstChild.className === activeCards[1].firstChild.className) { // Compare both cards in activeCards
                       cardState("match");
