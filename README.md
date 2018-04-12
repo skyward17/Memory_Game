@@ -1,8 +1,8 @@
 # Memory Game Project
 
-##
 
-Table of Contents
+
+#Table of Contents
 
 *
 >Introduction
@@ -11,12 +11,12 @@ Table of Contents
 >Credits
 
 
-Welcome to Match Game!
+#Welcome to Match Game!
 Match Game is a simple memory game you may remember from when you were younger.  
 The object of Match Game is simple; match each pair of cards until each pair is  matched.
 
 
-Instructions/Rules:
+#Instructions/Rules:
      1. Click on a card slot to flip it reveling an image.
 
      2. Select another slot to flip another card.
@@ -25,7 +25,7 @@ Instructions/Rules:
      If you fail to select match cards you lose a star.  Once all 5 stars are gone the game is over.
 
 
-Formatting notes:
+#Formatting notes:
      >Indentations:
      >JS files 4 spaces
      >CSS
