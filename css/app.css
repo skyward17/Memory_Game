@@ -76,6 +76,7 @@ ol {
     background: #02b3e4;
     cursor: default;
     transition: 0.4s;
+    pointer-events: none; /*Prevents clicking open card again while trying to open another  */
 }
 
 .deck .card.show {
@@ -86,6 +87,11 @@ ol {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
+    pointer-events: none;
+}
+
+.deck .card.disable {
+    cursor: none;
     pointer-events: none;
 }
 
