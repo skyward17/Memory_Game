@@ -34,7 +34,6 @@ function gameLoop() {
      };
     for (let k = 0; k < cardSpots.length; k++) { // Loop through li DOM
         cardSpots[k].addEventListener("click", function() {
-        //countClicks();  // Counts clicks on each li element
         let starCounter = document.getElementsByClassName("fa fa-star").length;   // Get the number of stars remaining
             cardSpots[k].className = "card open show";  // Flip card to show card
             countClicks();  // Counts clicks on each li element
@@ -60,7 +59,7 @@ function gameLoop() {
                           return gameOver();
                       }
                   } // No Match
-                  if (gameDeck.length <= 1) {  //  If no cards remain in gameDeck meaning all cards are matched
+                  if (matchedCards.length === 8) {  //  If no cards remain in gameDeck meaning all cards are matched
                       stopTimer(); // Stop Timer
                       return gameOver();
                   }  //  if gameDeck.length <=1
@@ -122,6 +121,7 @@ function clearDeck() {
 function clearCardDecks() {
     buildDeck.length = 0;
     activeCards.length = 0;
+    matchedCards.length = 0;
     gameDeck.length = 0;
 };
 

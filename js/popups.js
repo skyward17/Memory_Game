@@ -33,9 +33,9 @@ function difficultyLevel(level) {
 const gameOverModal = document.getElementById("gameOver_modal");
 function gameOver() {
     gameOverModal.style.display = "block";
-    if (gameDeck.length <= 1) {
+    if (matchedCards.length >= 6) {
         document.getElementById("gameFinalStatus").innerHTML = "YOU WON!";  //  Add "" to DOM for winner condition
-        console.log("TEST WINNER DOM");
+        document.getElementById("star-score").innerHTML = "Stars: " + document.getElementById("stars").innerHTML;  //  Displays Stars if winner
     }
     document.getElementById("userNameDisp").innerHTML = "Thank you for playing! " + [plrEntrName.value];
     document.getElementById("click-score").innerHTML = document.getElementById("click-count").innerHTML;
