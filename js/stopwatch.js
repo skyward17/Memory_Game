@@ -1,3 +1,6 @@
+//Timer
+// Credit: Saad  https://www.youtube.com/channel/UCy8-vp4NblZvyBpU6sqA3ow
+
 // Constructor Function
 function Stopwatch(element) {
 // Local Variables
@@ -32,11 +35,9 @@ function Stopwatch(element) {
         if (minutes.length < 2) {  // Length less than 2 digits add a 0 to the front for formatting
             minutes = '0' + minutes;
         }
-
         if (seconds.length < 2) {  // Length less than 2 digits add a 0 to the front for formatting
             seconds = '0' + seconds;
         }
-
         return minutes + ' : ' + seconds;
     };
 
